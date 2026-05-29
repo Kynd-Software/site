@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="shared.css?v=1" />
@@ -78,9 +78,9 @@
 
       .hero__headline {
         font-size: var(--t-hero);
-        font-weight: 900;
+        font-weight: 600;
         line-height: 1.05;
-        letter-spacing: -0.035em;
+        letter-spacing: -0.02em;
         color: var(--brand-dark);
         margin-bottom: var(--s6);
       }
@@ -575,7 +575,13 @@
           grid-template-columns: repeat(3, 1fr);
         }
         .feature-card--hero {
-          grid-column: span 2;
+          grid-column: span 3;
+          display: flex;
+          align-items: center;
+          gap: var(--s12);
+        }
+        .feature-card--hero .hero-text {
+          flex: 1;
         }
       }
 
@@ -1606,109 +1612,28 @@
           <!-- Feature strip -->
           <div class="feature-strip">
             <div class="feature-pill">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
               Focus Mode
             </div>
             <div class="feature-pill">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-              </svg>
-              Energy Aware
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Collaborative Support
             </div>
             <div class="feature-pill">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-              Body Doubling
-            </div>
-            <div class="feature-pill">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-              </svg>
-              Mood Tracking
-            </div>
-            <div class="feature-pill">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Routine Builder
             </div>
             <div class="feature-pill">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                />
-              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              RSD Support
+            </div>
+            <div class="feature-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               Wins Celebration
+            </div>
+            <div class="feature-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Check-ins
             </div>
           </div>
         </div>
@@ -1751,35 +1676,45 @@
               Productivity apps weren't built for how you think
             </h2>
             <p>
-              Most apps assume you can just… start. They don't account for
-              executive dysfunction, time blindness, or the overwhelm that comes
-              with too many choices.
+              Most apps assume you can just… start. They ignore the real
+              challenges that come with ADHD — the paralysis, the anxiety, the
+              forgetting you even installed them.
             </p>
           </div>
 
           <div class="problem-grid">
             <div class="problem-card problem-card--highlight animate-in">
               <div class="problem-card__icon" aria-hidden="true">😶‍🌫️</div>
-              <h3>Task paralysis</h3>
+              <h3>Paralysis &amp; overwhelm</h3>
               <p>
-                Staring at a 40-item to-do list, completely unable to pick where
-                to start — even when the deadline is real.
+                Staring at a wall of tasks, completely frozen. Not lazy — just
+                unable to figure out what to do first, or next.
               </p>
             </div>
             <div class="problem-card animate-in">
-              <div class="problem-card__icon" aria-hidden="true">⏳</div>
-              <h3>Time blindness</h3>
+              <div class="problem-card__icon" aria-hidden="true">🚀</div>
+              <h3>Task initiation</h3>
               <p>
-                Hours vanish. Every deadline feels like a surprise, even the
-                ones you wrote down.
+                Knowing exactly what needs doing but being completely unable to
+                start. The gap between intention and action can feel impossible.
               </p>
             </div>
             <div class="problem-card animate-in">
               <div class="problem-card__icon" aria-hidden="true">🌀</div>
-              <h3>Shame spirals</h3>
+              <h3>RSD &amp; anxiety spirals</h3>
               <p>
-                Missing one day breaks the streak, and suddenly you've abandoned
-                the whole system — again.
+                Rejection Sensitive Dysphoria turns a small setback into a
+                cascade of spiralling thoughts that make everything feel
+                hopeless.
+              </p>
+            </div>
+            <div class="problem-card animate-in">
+              <div class="problem-card__icon" aria-hidden="true">📱</div>
+              <h3>App abandonment</h3>
+              <p>
+                You downloaded something promising last week. Now it's buried on
+                page four of your home screen and you can't remember why you
+                installed it.
               </p>
             </div>
           </div>
@@ -1824,167 +1759,67 @@
           <div class="features-grid">
             <!-- Hero feature -->
             <div class="feature-card feature-card--hero animate-in">
-              <div
-                class="icon-box"
-                style="
-                  background: rgba(255, 255, 255, 0.15);
-                  color: white;
-                  margin-bottom: var(--s5);
-                "
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="6" />
-                  <circle cx="12" cy="12" r="2" />
-                </svg>
+              <div class="hero-text">
+                <div class="icon-box" style="background: rgba(255,255,255,0.15); color: white; margin-bottom: var(--s5)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <h3 style="font-size: var(--t-2xl); margin-bottom: var(--s4)">Friction-free setup</h3>
+                <p style="font-size: var(--t-lg); opacity: 0.8; line-height: 1.7; max-width: 420px">
+                  A friendly AI assistant helps you make sense of the noise. Tell it what's on your plate — in any order, however chaotic — and kynd helps turn it into something manageable.
+                </p>
               </div>
-              <h3 style="font-size: var(--t-2xl); margin-bottom: var(--s4)">
-                Focus Mode
-              </h3>
-              <p
-                style="
-                  font-size: var(--t-lg);
-                  opacity: 0.8;
-                  line-height: 1.7;
-                  max-width: 420px;
-                "
-              >
-                One task. Full screen. Everything else gone. When the world is
-                too loud, kynd creates a quiet corner for just the thing that
-                matters right now.
-              </p>
-              <a
-                href="#waitlist"
-                class="btn btn--white"
-                style="margin-top: var(--s6)"
-                >Learn more</a
-              >
+              <!-- Decorative right panel -->
+              <div aria-hidden="true" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 220px; height: 220px; border-radius: var(--r-xl); background: rgba(255,255,255,0.1); font-size: 5rem;">
+                🧠
+              </div>
+            </div>
+
+            <div class="feature-card animate-in">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              </div>
+              <h3>One step at a time</h3>
+              <p>Overwhelming tasks get broken into small, concrete steps. kynd guides you through your day one action at a time — so you always know exactly what to do next.</p>
+            </div>
+
+            <div class="feature-card animate-in">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <h3>Routine Builder</h3>
+              <p>Build morning, evening, or any-time routines and let kynd walk you through them step by step. Flexible enough to adapt when life doesn't go to plan.</p>
             </div>
 
             <div class="feature-card animate-in">
               <div class="icon-box icon-box--amber">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
-              <h3>Energy-Aware Scheduling</h3>
-              <p>
-                Tell kynd how you're feeling. It matches tasks to your energy
-                level — no more forcing deep work when you're running on empty.
-              </p>
-            </div>
-
-            <div class="feature-card animate-in">
-              <div class="icon-box">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 20h9" />
-                  <path
-                    d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
-                  />
-                </svg>
-              </div>
-              <h3>Smart Task Capture</h3>
-              <p>
-                Voice, text, or photo — capture tasks however your brain is
-                working in that moment. kynd organises them later.
-              </p>
-            </div>
-
-            <div class="feature-card animate-in">
-              <div class="icon-box">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              </div>
-              <h3>Body Doubling</h3>
-              <p>
-                Work alongside others in live virtual sessions. The presence of
-                another person — even in silence — can make starting feel
-                possible.
-              </p>
+              <h3>Regular check-ins</h3>
+              <p>kynd checks in throughout the day — a gentle nudge to see how you're feeling and where you've got to. It keeps you connected without adding pressure.</p>
             </div>
 
             <div class="feature-card animate-in">
               <div class="icon-box icon-box--terracotta">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                  />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </div>
-              <h3>Streak-Free Wins</h3>
-              <p>
-                kynd celebrates what you <em>did</em> do — not what you didn't.
-                No punishment for off days. Every win counts, no matter how
-                small.
-              </p>
+              <h3>Calm the spiral</h3>
+              <p>When RSD or anxiety kicks in, kynd offers grounding exercises and gentle reframing to help you regain perspective — then builds a plan to help you reclaim control.</p>
             </div>
 
             <div class="feature-card animate-in">
               <div class="icon-box">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                  <line x1="16" y1="2" x2="16" y2="6" />
-                  <line x1="8" y1="2" x2="8" y2="6" />
-                  <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
-              <h3>Routine Builder</h3>
-              <p>
-                Gentle, flexible routines that adapt when life gets messy.
-                Because it will. And that's okay.
-              </p>
+              <h3>Collaborative support</h3>
+              <p>Bring in someone you trust — a parent, partner, friend, or coworker. They can help build your task list, keep you accountable, and celebrate your wins alongside you.</p>
+            </div>
+
+            <div class="feature-card animate-in">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <h3>Focus Mode</h3>
+              <p>One task. Full screen. Pomodoro timer built in. When the world is too loud, kynd creates a quiet space for just the thing that matters right now.</p>
             </div>
           </div>
         </div>
@@ -2005,29 +1840,29 @@
           <div class="steps-grid">
             <div class="step animate-in">
               <div class="step__number">1</div>
-              <h3>Tell kynd about you</h3>
+              <h3>Tell kynd what's going on</h3>
               <p>
-                Share how you work best, what your energy patterns look like,
-                and what you're trying to get done. No lengthy questionnaire —
-                just a friendly conversation.
+                Dump everything on your mind — tasks, worries, half-formed
+                ideas. The AI assistant helps sort the noise into something you
+                can actually work with. No judgement, no structure required.
               </p>
             </div>
             <div class="step step--active animate-in">
               <div class="step__number">2</div>
-              <h3>kynd learns your patterns</h3>
+              <h3>kynd shows you what to do next</h3>
               <p>
-                Over time, kynd notices when you're at your best, what helps you
-                focus, and where you get stuck — and adapts to you, not the
-                other way round.
+                No more staring at a list wondering where to start. kynd
+                surfaces one clear next step, guides you through your day, and
+                checks in to see how you're getting on.
               </p>
             </div>
             <div class="step animate-in">
               <div class="step__number">3</div>
-              <h3>Celebrate every win</h3>
+              <h3>Build momentum, not pressure</h3>
               <p>
-                kynd gently guides you through your day and celebrates progress
-                — big, small, and everything in between. No streaks to break. No
-                shame.
+                Every completed step is a win. kynd celebrates your progress,
+                helps you recover when things go sideways, and keeps showing up
+                — even on the days you forgot it existed.
               </p>
             </div>
           </div>
@@ -2050,25 +1885,13 @@
           <div class="adhd-pillars">
             <div class="pillar animate-in">
               <div class="pillar__icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-                  />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               </div>
               <div class="pillar__text">
                 <h3>No shame, ever</h3>
                 <p>
                   kynd never uses language that makes you feel bad for being
-                  human. Missed a day? The app starts fresh with you, without
+                  human. Missed a week? The app starts fresh with you, without
                   comment.
                 </p>
               </div>
@@ -2076,137 +1899,70 @@
 
             <div class="pillar animate-in">
               <div class="pillar__icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="12" />
-                  <line x1="12" y1="16" x2="12.01" y2="16" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               </div>
               <div class="pillar__text">
                 <h3>Low-overwhelm design</h3>
                 <p>
-                  Never more than three things asking for your attention at
-                  once. The interface is calm by design — generous white space,
-                  clear hierarchy, no decision fatigue.
+                  Never more than one thing asking for your attention at once.
+                  The interface is calm by design — clear, spacious, with no
+                  decision fatigue.
                 </p>
               </div>
             </div>
 
             <div class="pillar animate-in">
-              <div class="pillar__icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                  <polyline points="17 6 23 6 23 12" />
-                </svg>
+              <div class="pillar__icon" style="background: var(--amber-lt); color: var(--amber)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
               </div>
               <div class="pillar__text">
                 <h3>Adapts to real life</h3>
                 <p>
-                  Plans fall apart. That's fine. kynd recalibrates without drama
-                  — sliding tasks forward, adjusting priorities, keeping you
-                  moving.
+                  Plans fall apart — that's fine. kynd recalibrates without
+                  drama, adjusting your day without making you feel like you've
+                  failed.
                 </p>
               </div>
             </div>
 
             <div class="pillar animate-in">
-              <div
-                class="pillar__icon"
-                style="background: var(--amber-lt); color: var(--amber)"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
+              <div class="pillar__icon" style="background: var(--amber-lt); color: var(--amber)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div class="pillar__text">
-                <h3>Research-backed</h3>
+                <h3>Community-shaped</h3>
                 <p>
-                  kynd is built with guidance from ADHD specialists,
-                  occupational therapists, and — most importantly — people with
-                  ADHD who told us what actually helps.
+                  Every feature has been shaped alongside members of the ADHD
+                  community — people who live this every day and know what
+                  actually helps.
                 </p>
               </div>
             </div>
 
             <div class="pillar animate-in">
-              <div
-                class="pillar__icon"
-                style="
-                  background: var(--terracotta-lt);
-                  color: var(--terracotta);
-                "
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                  />
-                </svg>
+              <div class="pillar__icon" style="background: var(--terracotta-lt); color: var(--terracotta)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               </div>
               <div class="pillar__text">
-                <h3>Celebrate small wins</h3>
+                <h3>Every win counts</h3>
                 <p>
-                  Getting dressed. Sending one email. Making the call. kynd
-                  recognises that for an ADHD brain, these are real achievements
-                  worth celebrating.
+                  Getting dressed. Sending one email. Replying to that message.
+                  kynd treats these as the real achievements they are for an
+                  ADHD brain.
                 </p>
               </div>
             </div>
 
             <div class="pillar animate-in">
               <div class="pillar__icon">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                  <line x1="6" y1="1" x2="6" y2="4" />
-                  <line x1="10" y1="1" x2="10" y2="4" />
-                  <line x1="14" y1="1" x2="14" y2="4" />
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
               </div>
               <div class="pillar__text">
-                <h3>Gentle nudges, not alarms</h3>
+                <h3>Supportive nudges, not demands</h3>
                 <p>
-                  Notifications that feel supportive rather than demanding. kynd
-                  checks in, it doesn't bark orders.
+                  Check-ins that feel like a gentle tap on the shoulder, not a
+                  notification screaming at you. kynd checks in, it doesn't
+                  bark orders.
                 </p>
               </div>
             </div>
@@ -2229,7 +1985,8 @@
             <div class="testimonial animate-in">
               <p class="testimonial__quote">
                 "Finally an app that doesn't make me feel broken for not using
-                it perfectly. kynd just… gets it."
+                it perfectly. I opened it three days in a row — which is
+                unheard of for me."
               </p>
               <div class="testimonial__author">
                 <div class="testimonial__avatar" aria-hidden="true">A</div>
@@ -2242,9 +1999,9 @@
 
             <div class="testimonial animate-in">
               <p class="testimonial__quote">
-                "The energy check-in at the start of every day has genuinely
-                changed how I plan. I stop trying to force productivity when I'm
-                depleted."
+                "The step-by-step breakdown is everything. I knew what I had to
+                do — I just couldn't start. Having one tiny action to take
+                first changed that."
               </p>
               <div class="testimonial__author">
                 <div
@@ -2263,9 +2020,9 @@
 
             <div class="testimonial animate-in">
               <p class="testimonial__quote">
-                "Body doubling sessions have been a game changer. I got more
-                done in one session than I had all week. The shame-free wins
-                thing is so real."
+                "My partner uses the collaborative feature with me. Knowing
+                someone can see my list and cheer me on has been surprisingly
+                powerful."
               </p>
               <div class="testimonial__author">
                 <div

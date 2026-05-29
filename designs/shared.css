@@ -73,7 +73,7 @@ input {
 
   /* Typography */
   --font: "Nunito", system-ui, -apple-system, sans-serif;
-  --font-heading: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-heading: 'Baloo Thambi 2', system-ui, -apple-system, sans-serif;
 
   /* Type scale */
   --t-xs: 0.75rem;
