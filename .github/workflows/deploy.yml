@@ -25,12 +25,10 @@ jobs:
           cache: pnpm
           cache-dependency-path: app/pnpm-lock.yaml
 
-      - name: Relax release-age policy for CI
-        working-directory: app
-        run: echo "minimum-release-age=0" >> .npmrc
-
       - name: Install dependencies
         working-directory: app
+        env:
+          npm_config_minimum_release_age: '0'
         run: pnpm install --frozen-lockfile
 
       - name: Build
