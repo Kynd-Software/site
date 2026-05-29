@@ -1,0 +1,34 @@
+.card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: var(--s8);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.surface {
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.pale {
+  background: var(--brand-xpale);
+  box-shadow: none;
+}
+
+.brand {
+  background: var(--brand);
+}
+
+.brand :global(h2),
+.brand :global(h3),
+.brand :global(p) {
+  color: var(--white);
+}

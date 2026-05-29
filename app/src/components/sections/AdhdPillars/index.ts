@@ -1,0 +1,1 @@
+export { AdhdPillars } from './AdhdPillars';

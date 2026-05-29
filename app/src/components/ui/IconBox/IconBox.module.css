@@ -1,0 +1,35 @@
+.iconBox {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: var(--s5);
+}
+
+.iconBox :global(svg) {
+  width: 24px;
+  height: 24px;
+}
+
+.brand {
+  background: var(--brand-pale);
+  color: var(--brand);
+}
+
+.amber {
+  background: var(--amber-lt);
+  color: var(--amber);
+}
+
+.terracotta {
+  background: var(--terracotta-lt);
+  color: var(--terracotta);
+}
+
+.white {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+}

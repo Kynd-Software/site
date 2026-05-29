@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════════════════
+   kynd design tokens
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Brand — forest green */
+  --brand: #3d5c34;
+  --brand-dark: #2b4122;
+  --brand-mid: #567248;
+  --brand-light: #7ba06a;
+  --brand-pale: #e4eedf;
+  --brand-xpale: #f0f5ed;
+
+  /* Warm neutrals */
+  --cream: #faf7f0;
+  --surface: #f2ece0;
+  --surface-mid: #e6ddd0;
+  --surface-dark: #d0c5b2;
+
+  /* Accent — terracotta */
+  --terracotta: #c4673f;
+  --terracotta-lt: #f2c4a0;
+  --terracotta-dk: #a5522f;
+
+  /* Accent — amber */
+  --amber: #d4902a;
+  --amber-lt: #faeaba;
+
+  /* Text */
+  --text-dark: #192817;
+  --text-body: #3a4c35;
+  --text-muted: #6a7b64;
+  --text-dim: #99a994;
+  --white: #ffffff;
+
+  /* Typography */
+  --font: 'Nunito', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Baloo Thambi 2', system-ui, -apple-system, sans-serif;
+
+  /* Type scale */
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-base: 1rem;
+  --t-lg: 1.125rem;
+  --t-xl: 1.25rem;
+  --t-2xl: 1.5rem;
+  --t-3xl: clamp(1.5rem, 3.5vw, 2rem);
+  --t-4xl: clamp(1.75rem, 4.5vw, 2.75rem);
+  --t-hero: clamp(2.75rem, 7.5vw, 4.5rem);
+
+  /* Spacing */
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.25rem;
+  --s6: 1.5rem;
+  --s8: 2rem;
+  --s10: 2.5rem;
+  --s12: 3rem;
+  --s16: 4rem;
+  --s20: 5rem;
+  --s24: 6rem;
+
+  /* Border radius */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-2xl: 40px;
+  --r-pill: 999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 3px rgba(25, 40, 23, 0.06);
+  --shadow-sm: 0 2px 8px rgba(25, 40, 23, 0.08);
+  --shadow-md: 0 4px 24px rgba(25, 40, 23, 0.11);
+  --shadow-lg: 0 10px 48px rgba(25, 40, 23, 0.14);
+  --shadow-xl: 0 20px 80px rgba(25, 40, 23, 0.18);
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 220ms;
+
+  /* Breakpoints (for reference in container queries / JS) */
+  --bp-sm: 600px;
+  --bp-md: 900px;
+  --bp-lg: 1200px;
+}

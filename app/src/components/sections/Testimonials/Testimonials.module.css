@@ -1,0 +1,98 @@
+.section {
+  background: var(--cream);
+}
+
+.grid {
+  margin-top: var(--s12);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s4);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--surface-mid);
+  border-radius: var(--r-xl);
+  padding: var(--s8);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s5);
+  margin: 0;
+}
+
+.quote {
+  font-size: var(--t-lg);
+  font-weight: 600;
+  line-height: 1.65;
+  color: var(--text-dark);
+  font-style: italic;
+  margin-bottom: var(--s5);
+}
+
+.quote p {
+  margin: 0;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-pill);
+  background: var(--brand-pale);
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: var(--t-sm);
+  flex-shrink: 0;
+}
+
+.avatar.brand {
+  background: var(--brand-pale);
+  color: var(--brand);
+}
+
+.avatar.amber {
+  background: var(--amber-lt);
+  color: var(--amber);
+}
+
+.avatar.terracotta {
+  background: var(--terracotta-lt);
+  color: var(--terracotta);
+}
+
+.name {
+  display: block;
+  font-weight: 700;
+  font-size: var(--t-sm);
+  color: var(--text-dark);
+}
+
+.meta {
+  display: block;
+  font-size: var(--t-xs);
+  color: var(--text-muted);
+}
+
+.disclaimer {
+  text-align: center;
+  margin-top: var(--s8);
+  font-size: var(--t-sm);
+  color: var(--text-dim);
+  font-style: italic;
+}

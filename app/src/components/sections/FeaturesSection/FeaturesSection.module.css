@@ -1,0 +1,127 @@
+.section {
+  background: var(--surface);
+}
+
+.heroCard {
+  margin-top: var(--s12);
+  background: var(--brand-dark);
+  border-radius: var(--r-xl);
+  padding: var(--s10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s6);
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 920px) {
+  .heroCard {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--s16);
+    padding-inline: var(--s12);
+  }
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  flex: 1;
+}
+
+.heroIcon {
+  /* override any variant colours for contrast on dark bg */
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: var(--t-3xl);
+  font-weight: 800;
+  color: var(--cream);
+  margin: 0;
+}
+
+.heroDesc {
+  font-size: var(--t-lg);
+  color: var(--cream);
+  opacity: 0.85;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 42ch;
+}
+
+.heroDecor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.decorBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 220px;
+  border-radius: var(--r-xl);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 5rem;
+}
+
+.decorEmoji {
+  font-size: 7rem;
+  line-height: 1;
+  display: block;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
+}
+
+.grid {
+  margin-top: var(--s6);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s5);
+}
+
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: var(--s8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: var(--t-xl);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: var(--t-sm);
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}

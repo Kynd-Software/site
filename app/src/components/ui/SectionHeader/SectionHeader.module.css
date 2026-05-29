@@ -1,0 +1,31 @@
+.header {
+  margin-bottom: var(--s12);
+}
+
+.header h2 {
+  font-size: var(--t-4xl);
+  margin-bottom: var(--s4);
+}
+
+.header p {
+  font-size: var(--t-lg);
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.centred {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-bottom: var(--s12);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: var(--t-sm);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--brand-mid);
+  margin-bottom: var(--s3);
+}

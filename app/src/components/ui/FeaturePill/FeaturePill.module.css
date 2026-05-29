@@ -1,0 +1,24 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  padding: var(--s2) var(--s4);
+  border-radius: var(--r-pill);
+  background: var(--white);
+  color: var(--text-body);
+  box-shadow: var(--shadow-xs);
+  white-space: nowrap;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  color: var(--brand);
+}
+
+.icon :global(svg) {
+  width: 14px;
+  height: 14px;
+}

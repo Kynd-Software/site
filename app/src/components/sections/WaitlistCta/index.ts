@@ -1,0 +1,1 @@
+export { WaitlistCta } from './WaitlistCta';
