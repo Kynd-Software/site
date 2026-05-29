@@ -1,1308 +1,2525 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kynd — Designed for the ADHD mind</title>
-  <meta name="description" content="kynd is a life management app designed from the ground up for people with ADHD — working with your brain, not against it." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="shared.css?v=1" />
-  <style>
-    /* ─── Page scaffold ── */
-    body { padding-top: 6rem; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kynd — Designed for the ADHD mind</title>
+    <meta
+      name="description"
+      content="kynd is a life management app designed from the ground up for people with ADHD — working with your brain, not against it."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared.css?v=1" />
+    <style>
+      /* ─── Page scaffold ── */
+      body {
+        padding-top: 6rem;
+      }
 
-    /* ═══════════════════════════════ HERO ══════════════════════════════ */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding-block: var(--s24) var(--s20);
-      background: linear-gradient(170deg, var(--brand-xpale) 0%, var(--cream) 55%);
-    }
+      /* ═══════════════════════════════ HERO ══════════════════════════════ */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding-block: var(--s24) var(--s20);
+        background: linear-gradient(
+          170deg,
+          var(--brand-xpale) 0%,
+          var(--cream) 55%
+        );
+      }
 
-    /* Organic blob decorations */
-    .hero__blob {
-      position: absolute;
-      border-radius: 60% 40% 65% 35% / 45% 58% 42% 55%;
-      animation: blobMorph 12s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero__blob--1 {
-      width: clamp(400px, 55vw, 800px);
-      height: clamp(400px, 55vw, 800px);
-      background: var(--brand-pale);
-      top: -30%;
-      right: -12%;
-      opacity: 0.65;
-      animation-delay: 0s;
-    }
-    .hero__blob--2 {
-      width: clamp(200px, 30vw, 460px);
-      height: clamp(200px, 30vw, 460px);
-      background: var(--amber-lt);
-      bottom: -10%;
-      left: -6%;
-      opacity: 0.55;
-      animation-delay: -6s;
-    }
+      /* Organic blob decorations */
+      .hero__blob {
+        position: absolute;
+        border-radius: 60% 40% 65% 35% / 45% 58% 42% 55%;
+        animation: blobMorph 12s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .hero__blob--1 {
+        width: clamp(400px, 55vw, 800px);
+        height: clamp(400px, 55vw, 800px);
+        background: var(--brand-pale);
+        top: -30%;
+        right: -12%;
+        opacity: 0.65;
+        animation-delay: 0s;
+      }
+      .hero__blob--2 {
+        width: clamp(200px, 30vw, 460px);
+        height: clamp(200px, 30vw, 460px);
+        background: var(--amber-lt);
+        bottom: -10%;
+        left: -6%;
+        opacity: 0.55;
+        animation-delay: -6s;
+      }
 
-    .hero__inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s12);
-      align-items: center;
-    }
-
-    .hero__copy { max-width: 680px; }
-    .hero__copy .badge { margin-bottom: var(--s5); }
-
-    .hero__headline {
-      font-size: var(--t-hero);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-      color: var(--brand-dark);
-      margin-bottom: var(--s6);
-    }
-    .hero__headline em {
-      font-style: normal;
-      color: var(--brand);
-    }
-
-    .hero__sub {
-      font-size: clamp(var(--t-lg), 2.2vw, var(--t-xl));
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 560px;
-      margin-bottom: var(--s8);
-    }
-    .hero__sub p + p { margin-top: var(--s4); }
-    .hero__sub-brand {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: var(--t-xl);
-      color: var(--brand-dark);
-      margin-top: var(--s5);
-    }
-
-    .hero__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--s4);
-      margin-bottom: var(--s8);
-    }
-
-    .hero__trust {
-      display: flex;
-      align-items: center;
-      gap: var(--s4);
-      color: var(--text-muted);
-      font-size: var(--t-sm);
-      font-weight: 600;
-    }
-    .hero__trust strong { color: var(--text-dark); }
-
-    .trust-avatars {
-      display: flex;
-      margin-right: var(--s2);
-    }
-    .trust-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: var(--r-pill);
-      border: 2.5px solid var(--white);
-      background: var(--brand-pale);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--brand);
-      margin-right: -8px;
-      flex-shrink: 0;
-    }
-    .trust-avatar:nth-child(2) { background: var(--amber-lt); color: var(--amber); }
-    .trust-avatar:nth-child(3) { background: var(--terracotta-lt); color: var(--terracotta); }
-
-    /* Phone wireframe illustration */
-    .hero__visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .phone-wrap {
-      position: relative;
-      width: min(300px, 82vw);
-      animation: floatUp 5s ease-in-out infinite;
-    }
-
-    .phone-svg {
-      width: 100%;
-      drop-shadow: var(--shadow-xl);
-      filter: drop-shadow(0 20px 60px rgba(25, 40, 23, 0.18));
-    }
-
-    /* Feature chips around the phone */
-    .chip {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: var(--t-xs);
-      font-weight: 700;
-      padding: 8px 14px;
-      border-radius: var(--r-pill);
-      background: var(--white);
-      box-shadow: var(--shadow-md);
-      color: var(--text-dark);
-      white-space: nowrap;
-      letter-spacing: 0.01em;
-    }
-    .chip::before {
-      content: '';
-      display: block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--brand);
-      flex-shrink: 0;
-    }
-    .chip--focus  { top: 8%;  left: -32%; animation: floatUp 4s ease-in-out infinite; animation-delay: 0.5s; }
-    .chip--body   { top: 36%; left: -38%; animation: floatUp 5.5s ease-in-out infinite; animation-delay: 1.2s; }
-    .chip--energy { top: 62%; left: -28%; animation: floatUp 4.5s ease-in-out infinite; animation-delay: 0.8s; }
-    .chip--win    { top: 16%; right: -30%; animation: floatUp 5s ease-in-out infinite; animation-delay: 1.6s; }
-    .chip--win::before    { background: var(--terracotta); }
-    .chip--capture { top: 48%; right: -36%; animation: floatUp 4.8s ease-in-out infinite; animation-delay: 0.3s; }
-    .chip--capture::before { background: var(--amber); }
-
-    @media (max-width: 600px) {
-      .chip { display: none; }
-    }
-
-    /* Feature strip (below copy on mobile / below visual on desktop) */
-    .feature-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--s3);
-      margin-top: var(--s10);
-      position: relative;
-      z-index: 1;
-    }
-    .feature-pill {
-      display: flex;
-      align-items: center;
-      gap: var(--s2);
-      font-size: var(--t-sm);
-      font-weight: 600;
-      color: var(--text-muted);
-      background: var(--white);
-      border: 1.5px solid var(--surface-mid);
-      border-radius: var(--r-pill);
-      padding: 7px 16px;
-    }
-    .feature-pill svg { color: var(--brand); flex-shrink: 0; }
-
-    @media (min-width: 900px) {
       .hero__inner {
-        grid-template-columns: 1fr 420px;
-        gap: var(--s16);
-      }
-      .hero__copy { max-width: none; }
-    }
-
-    /* ═══════════════════════════════ MANIFESTO BAND ══════════════════════ */
-    .band {
-      background: var(--brand);
-      padding-block: var(--s16);
-    }
-    .band__inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s8);
-      text-align: center;
-    }
-    .band__stat {
-      color: var(--white);
-    }
-    .band__stat-number {
-      font-size: var(--t-4xl);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: var(--s2);
-    }
-    .band__stat-label {
-      font-size: var(--t-sm);
-      font-weight: 600;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.5;
-    }
-    .band__divider {
-      width: 1px;
-      background: rgba(255,255,255,0.2);
-      display: none;
-    }
-    @media (min-width: 600px) {
-      .band__inner {
-        grid-template-columns: 1fr 1px 1fr 1px 1fr;
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--s12);
         align-items: center;
-        text-align: left;
       }
-      .band__divider { display: block; height: 48px; }
-    }
 
-    /* ═══════════════════════════════ PROBLEM ════════════════════════════ */
-    .problem-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s6);
-    }
-    .problem-card {
-      padding: var(--s8);
-      border-radius: var(--r-xl);
-      border: 1.5px solid var(--surface-mid);
-      background: var(--white);
-    }
-    .problem-card__icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--s4);
-      line-height: 1;
-    }
-    .problem-card h3 {
-      font-size: var(--t-xl);
-      margin-bottom: var(--s3);
-    }
-    .problem-card p {
-      font-size: var(--t-base);
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    .problem-card--highlight {
-      background: var(--brand-xpale);
-      border-color: var(--brand-pale);
-    }
+      .hero__copy {
+        max-width: 680px;
+      }
+      .hero__copy .badge {
+        margin-bottom: var(--s5);
+      }
 
-    @media (min-width: 680px) {
-      .problem-grid { grid-template-columns: repeat(3, 1fr); }
-    }
+      .hero__headline {
+        font-size: var(--t-hero);
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        color: var(--brand-dark);
+        margin-bottom: var(--s6);
+      }
+      .hero__headline em {
+        font-style: normal;
+        color: var(--brand);
+      }
 
-    /* ═══════════════════════════════ FEATURES ═══════════════════════════ */
-    .features-section { background: var(--surface); }
+      .hero__sub {
+        font-size: clamp(var(--t-lg), 2.2vw, var(--t-xl));
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 560px;
+        margin-bottom: var(--s8);
+      }
+      .hero__sub p + p {
+        margin-top: var(--s4);
+      }
+      .hero__sub-brand {
+        font-family: var(--font-heading);
+        font-weight: 800;
+        font-size: var(--t-xl);
+        color: var(--brand-dark);
+        margin-top: var(--s5);
+      }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s5);
-    }
+      .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s4);
+        margin-bottom: var(--s8);
+      }
 
-    .feature-card {
-      padding: var(--s8);
-      border-radius: var(--r-xl);
-      background: var(--white);
-      box-shadow: var(--shadow-xs);
-      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-    .feature-card h3 {
-      font-size: var(--t-xl);
-      margin-bottom: var(--s3);
-    }
-    .feature-card p {
-      font-size: var(--t-sm);
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
+      .hero__trust {
+        display: flex;
+        align-items: center;
+        gap: var(--s4);
+        color: var(--text-muted);
+        font-size: var(--t-sm);
+        font-weight: 600;
+      }
+      .hero__trust strong {
+        color: var(--text-dark);
+      }
 
-    /* Highlight card — spans full width on mobile, 2 cols on desktop */
-    .feature-card--hero {
-      background: var(--brand-dark);
-      color: var(--white);
-      grid-column: span 1;
-    }
-    .feature-card--hero h3, .feature-card--hero p { color: var(--white); }
-    .feature-card--hero p { opacity: 0.8; }
-    .feature-card--hero .icon-box {
-      background: rgba(255,255,255,0.15);
-      color: var(--white);
-    }
+      .trust-avatars {
+        display: flex;
+        margin-right: var(--s2);
+      }
+      .trust-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: var(--r-pill);
+        border: 2.5px solid var(--white);
+        background: var(--brand-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--brand);
+        margin-right: -8px;
+        flex-shrink: 0;
+      }
+      .trust-avatar:nth-child(2) {
+        background: var(--amber-lt);
+        color: var(--amber);
+      }
+      .trust-avatar:nth-child(3) {
+        background: var(--terracotta-lt);
+        color: var(--terracotta);
+      }
 
-    @media (min-width: 600px) {
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (min-width: 920px) {
-      .features-grid { grid-template-columns: repeat(3, 1fr); }
-      .feature-card--hero { grid-column: span 2; }
-    }
+      /* Phone wireframe illustration */
+      .hero__visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
 
-    /* ═══════════════════════════════ HOW IT WORKS ═══════════════════════ */
-    .steps-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s8);
-      position: relative;
-    }
+      .phone-wrap {
+        position: relative;
+        width: min(300px, 82vw);
+        animation: floatUp 5s ease-in-out infinite;
+      }
 
-    /* Connecting line on desktop */
-    @media (min-width: 768px) {
-      .steps-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .phone-svg {
+        width: 100%;
+        drop-shadow: var(--shadow-xl);
+        filter: drop-shadow(0 20px 60px rgba(25, 40, 23, 0.18));
+      }
+
+      /* Feature chips around the phone */
+      .chip {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: var(--t-xs);
+        font-weight: 700;
+        padding: 8px 14px;
+        border-radius: var(--r-pill);
+        background: var(--white);
+        box-shadow: var(--shadow-md);
+        color: var(--text-dark);
+        white-space: nowrap;
+        letter-spacing: 0.01em;
+      }
+      .chip::before {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--brand);
+        flex-shrink: 0;
+      }
+      .chip--focus {
+        top: 8%;
+        left: -19%;
+        animation: floatUp 4s ease-in-out infinite;
+        animation-delay: 0.5s;
+      }
+      .chip--body {
+        top: 36%;
+        left: -29%;
+        animation: floatUp 5.5s ease-in-out infinite;
+        animation-delay: 1.2s;
+      }
+      .chip--energy {
+        top: 62%;
+        left: -15%;
+        animation: floatUp 4.5s ease-in-out infinite;
+        animation-delay: 0.8s;
+      }
+      .chip--win {
+        top: 16%;
+        right: -15%;
+        animation: floatUp 5s ease-in-out infinite;
+        animation-delay: 1.6s;
+      }
+      .chip--win::before {
+        background: var(--terracotta);
+      }
+      .chip--capture {
+        top: 48%;
+        right: -20%;
+        animation: floatUp 4.8s ease-in-out infinite;
+        animation-delay: 0.3s;
+      }
+      .chip--capture::before {
+        background: var(--amber);
+      }
+
+      @media (max-width: 600px) {
+        .chip {
+          display: none;
+        }
+      }
+
+      /* Feature strip (below copy on mobile / below visual on desktop) */
+      .feature-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s3);
+        margin-top: var(--s10);
+        position: relative;
+        z-index: 1;
+      }
+      .feature-pill {
+        display: flex;
+        align-items: center;
+        gap: var(--s2);
+        font-size: var(--t-sm);
+        font-weight: 600;
+        color: var(--text-muted);
+        background: var(--white);
+        border: 1.5px solid var(--surface-mid);
+        border-radius: var(--r-pill);
+        padding: 7px 16px;
+      }
+      .feature-pill svg {
+        color: var(--brand);
+        flex-shrink: 0;
+      }
+
+      /* Mobile-first hero: phone illustration at top with gradient fade into h1 */
+      @media (max-width: 899px) {
+        .hero {
+          padding-block: 0 var(--s16);
+          /* extend behind nav */
+          margin-top: -6rem;
+          padding-top: 0;
+          /* Use plain cream so no gradient rectangle frames the phone */
+          background: var(--cream);
+        }
+
+        .hero__inner {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+
+        /* Phone visual: full-width at top, tall, no side padding */
+        .hero__visual {
+          order: -1;
+          width: 100vw;
+          margin-inline: calc(-1 * var(--s6));
+          position: relative;
+          height: clamp(480px, 105vw, 640px);
+          overflow: visible; /* mask-image handles the fade — no hard clip needed */
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          padding-top: 7rem; /* clear nav */
+          background: transparent;
+        }
+
+        .phone-wrap {
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          display: flex;
+          justify-content: center;
+          /* Fade only the phone — blobs are outside this element so they're unaffected */
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 55%,
+            transparent 100%
+          );
+          mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+        }
+
+        .phone-wrap .phone-svg {
+          width: clamp(140px, 48vw, 240px);
+          flex-shrink: 0;
+        }
+
+        /* Mobile blobs — reposition to frame the phone */
+        .hero__blob--1 {
+          width: 95vw;
+          height: 95vw;
+          top: -10vw;
+          right: -25vw;
+          opacity: 0.7;
+        }
+        .hero__blob--2 {
+          width: 70vw;
+          height: 70vw;
+          bottom: auto;
+          top: 20vw;
+          left: -20vw;
+          opacity: 0.6;
+        }
+        /* Third blob on mobile for extra warmth */
+        .hero__blob--3 {
+          display: block;
+          width: 60vw;
+          height: 60vw;
+          background: var(--terracotta-lt);
+          bottom: 30%;
+          right: -15vw;
+          opacity: 0.45;
+          animation-delay: -3s;
+        }
+
+        /* Chips: straddling phone edges so they're legible against the bg */
+        .chip {
+          display: flex;
+          font-size: 10px;
+          padding: 6px 10px;
+          z-index: 1; /* above phone SVG within mask stacking context */
+        }
+        /* Phone is centred at 50% of the 100%-wide wrap, ~48vw wide.
+           Left edge ≈ 26% from wrap left, right edge ≈ 26% from wrap right.
+           Position chips just inside those edges so they stay in viewport. */
+        .chip--focus {
+          top: 18%;
+          left: 18%;
+          animation-delay: 0.5s;
+        }
+        .chip--win {
+          top: 10%;
+          right: 15%;
+          animation-delay: 1.6s;
+        }
+        .chip--body {
+          top: 40%;
+          left: 10%;
+          animation-delay: 1.2s;
+        }
+        .chip--energy {
+          top: 60%;
+          left: 17%;
+          animation-delay: 0.8s;
+        }
+        .chip--capture {
+          top: 30%;
+          right: 11%;
+          animation-delay: 0.3s;
+        }
+
+        /* Copy sits below the visual, overlapping the fade */
+        .hero__copy {
+          position: relative;
+          z-index: 4;
+          margin-top: calc(-1 * var(--s16));
+          padding-inline: 0;
+        }
+
+        .hero__headline {
+          font-size: clamp(2.6rem, 9vw, 2.8rem);
+          margin-bottom: var(--s5);
+        }
+      }
+
+      @media (min-width: 900px) {
+        .hero__blob--3 {
+          display: none;
+        }
+
+        .hero__inner {
+          display: grid;
+          grid-template-columns: 1fr 420px;
+          gap: var(--s16);
+          align-items: center;
+        }
+
+        .hero__copy {
+          max-width: none;
+        }
+
+        .hero__visual {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+        }
+
+        .phone-wrap {
+          width: min(300px, 82vw);
+        }
+
+        /* Chips sit above phone on desktop */
+        .chip {
+          z-index: 2;
+        }
+      }
+
+      /* ═══════════════════════════════ MANIFESTO BAND ══════════════════════ */
+      .band {
+        background: var(--brand);
+        padding-block: var(--s16);
+      }
+      .band__inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--s8);
+        text-align: center;
+      }
+      .band__stat {
+        color: var(--white);
+      }
+      .band__stat-number {
+        font-size: var(--t-4xl);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        line-height: 1;
+        margin-bottom: var(--s2);
+      }
+      .band__stat-label {
+        font-size: var(--t-sm);
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.5;
+      }
+      .band__divider {
+        width: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        display: none;
+      }
+      @media (min-width: 600px) {
+        .band__inner {
+          grid-template-columns: 1fr 1px 1fr 1px 1fr;
+          align-items: center;
+          text-align: left;
+        }
+        .band__divider {
+          display: block;
+          height: 48px;
+        }
+      }
+
+      /* ═══════════════════════════════ PROBLEM ════════════════════════════ */
+      .problem-grid {
+        display: grid;
+        grid-template-columns: 1fr;
         gap: var(--s6);
       }
-      .steps-grid::before {
-        content: '';
-        position: absolute;
-        top: 36px;
-        left: calc(16.66% + 20px);
-        right: calc(16.66% + 20px);
-        height: 2px;
-        background: linear-gradient(90deg, var(--brand-pale), var(--brand-pale));
-        border: 1px dashed var(--brand-light);
-        z-index: 0;
-        opacity: 0.6;
+      .problem-card {
+        padding: var(--s8);
+        border-radius: var(--r-xl);
+        border: 1.5px solid var(--surface-mid);
+        background: var(--white);
       }
-    }
-
-    .step {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-    .step__number {
-      width: 72px;
-      height: 72px;
-      border-radius: var(--r-pill);
-      background: var(--brand-pale);
-      color: var(--brand);
-      font-size: var(--t-2xl);
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto var(--s5);
-      border: 3px solid var(--white);
-      box-shadow: 0 0 0 6px var(--brand-pale);
-    }
-    .step--active .step__number {
-      background: var(--brand);
-      color: var(--white);
-      box-shadow: 0 0 0 6px var(--brand-pale), var(--shadow-md);
-    }
-    .step h3 {
-      font-size: var(--t-xl);
-      margin-bottom: var(--s3);
-    }
-    .step p {
-      font-size: var(--t-base);
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 280px;
-      margin: 0 auto;
-    }
-
-    /* ═══════════════════════════════ ADHD FIRST ═════════════════════════ */
-    .adhd-section { background: var(--brand-xpale); }
-
-    .adhd-pillars {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s5);
-    }
-
-    .pillar {
-      display: flex;
-      gap: var(--s5);
-      align-items: flex-start;
-      background: var(--white);
-      border-radius: var(--r-xl);
-      padding: var(--s6);
-      box-shadow: var(--shadow-xs);
-      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-    }
-    .pillar:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-    .pillar__icon {
-      width: 48px; height: 48px;
-      border-radius: var(--r-md);
-      background: var(--brand-pale);
-      color: var(--brand);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .pillar__icon svg { width: 22px; height: 22px; }
-    .pillar__text h3 { font-size: var(--t-lg); margin-bottom: var(--s2); }
-    .pillar__text p { font-size: var(--t-sm); color: var(--text-muted); line-height: 1.65; }
-
-    @media (min-width: 680px) {
-      .adhd-pillars { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* ═══════════════════════════════ TESTIMONIALS ═══════════════════════ */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s5);
-    }
-    .testimonial {
-      background: var(--white);
-      border-radius: var(--r-xl);
-      padding: var(--s8);
-      box-shadow: var(--shadow-xs);
-      border: 1.5px solid var(--surface-mid);
-    }
-    .testimonial__quote {
-      font-size: var(--t-lg);
-      font-weight: 600;
-      line-height: 1.65;
-      color: var(--text-dark);
-      margin-bottom: var(--s5);
-      font-style: italic;
-    }
-    .testimonial__author {
-      display: flex;
-      align-items: center;
-      gap: var(--s3);
-    }
-    .testimonial__avatar {
-      width: 40px; height: 40px;
-      border-radius: var(--r-pill);
-      background: var(--brand-pale);
-      color: var(--brand);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: var(--t-sm);
-      flex-shrink: 0;
-    }
-    .testimonial__name { font-weight: 700; font-size: var(--t-sm); color: var(--text-dark); }
-    .testimonial__meta { font-size: var(--t-xs); color: var(--text-muted); }
-    .testimonial--placeholder .testimonial__quote { color: var(--text-dim); font-style: normal; }
-
-    @media (min-width: 768px) {
-      .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    /* ═══════════════════════════════ WAITLIST ═══════════════════════════ */
-    .waitlist-section {
-      background: var(--brand-dark);
-      position: relative;
-      overflow: hidden;
-    }
-    .waitlist-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 50%, rgba(93, 140, 75, 0.22) 0%, transparent 65%),
-        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(196, 103, 63, 0.12) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .waitlist-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 580px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .waitlist-inner h2 { color: var(--white); font-size: var(--t-4xl); margin-bottom: var(--s5); }
-    .waitlist-inner p { color: rgba(255,255,255,0.7); font-size: var(--t-lg); line-height: 1.7; margin-bottom: var(--s8); }
-
-    .waitlist-form {
-      display: flex;
-      flex-direction: column;
-      gap: var(--s3);
-      margin-bottom: var(--s6);
-    }
-    .waitlist-form .input {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.2);
-      color: var(--white);
-    }
-    .waitlist-form .input::placeholder { color: rgba(255,255,255,0.45); }
-    .waitlist-form .input:focus { border-color: rgba(255,255,255,0.7); box-shadow: 0 0 0 4px rgba(255,255,255,0.08); }
-
-    @media (min-width: 520px) {
-      .waitlist-form { flex-direction: row; }
-      .waitlist-form .input { flex: 1; }
-    }
-
-    .waitlist-social {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--s3);
-      color: rgba(255,255,255,0.5);
-      font-size: var(--t-sm);
-      font-weight: 600;
-    }
-    .waitlist-social-num {
-      color: var(--white);
-      font-weight: 800;
-    }
-    .waitlist-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.3); }
-
-    .appstore-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--s4);
-      justify-content: center;
-      margin-top: var(--s8);
-    }
-    .store-badge {
-      display: flex;
-      align-items: center;
-      gap: var(--s3);
-      background: rgba(255,255,255,0.1);
-      border: 1.5px solid rgba(255,255,255,0.22);
-      border-radius: var(--r-lg);
-      padding: var(--s3) var(--s5);
-      color: var(--white);
-      transition: background var(--dur);
-      cursor: default;
-    }
-    .store-badge:hover { background: rgba(255,255,255,0.18); }
-    .store-badge__icon { flex-shrink: 0; opacity: 0.85; }
-    .store-badge__label { font-size: var(--t-xs); font-weight: 600; opacity: 0.6; letter-spacing: 0.05em; line-height: 1.2; }
-    .store-badge__name { font-size: var(--t-base); font-weight: 800; line-height: 1; }
-
-    /* ═══════════════════════════════ FOOTER ════════════════════════════ */
-    .site-footer {
-      background: var(--text-dark);
-      padding-block: var(--s16) var(--s10);
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--s10);
-      margin-bottom: var(--s12);
-      padding-bottom: var(--s10);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .footer-brand {}
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      margin-bottom: var(--s4);
-    }
-    .footer-logo img { height: 4rem; width: auto; filter: brightness(0) invert(1) opacity(0.9); }
-    .footer-tagline {
-      font-size: var(--t-sm);
-      color: rgba(255,255,255,0.5);
-      line-height: 1.7;
-      max-width: 280px;
-    }
-
-    .footer-cols {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--s8);
-    }
-    .footer-col h4 {
-      font-size: var(--t-xs);
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: var(--s4);
-    }
-    .footer-col ul { display: flex; flex-direction: column; gap: var(--s3); }
-    .footer-col a {
-      font-size: var(--t-sm);
-      font-weight: 600;
-      color: rgba(255,255,255,0.6);
-      transition: color var(--dur);
-    }
-    .footer-col a:hover { color: var(--white); }
-
-    .footer-bottom {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--s4);
-      align-items: center;
-      justify-content: space-between;
-    }
-    .footer-copy {
-      font-size: var(--t-xs);
-      color: rgba(255,255,255,0.3);
-      font-weight: 600;
-    }
-    .footer-legal {
-      display: flex;
-      gap: var(--s5);
-    }
-    .footer-legal a {
-      font-size: var(--t-xs);
-      font-weight: 600;
-      color: rgba(255,255,255,0.3);
-      transition: color var(--dur);
-    }
-    .footer-legal a:hover { color: rgba(255,255,255,0.7); }
-
-    @media (min-width: 780px) {
-      .footer-top { grid-template-columns: 280px 1fr; }
-      .footer-cols { grid-template-columns: repeat(3, 1fr); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ─── Navigation ─── -->
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="#home" class="nav-logo" aria-label="kynd home">
-          <img src="logomark.png" alt="kynd" />
-        </a>
-
-        <ul class="nav-links" role="list">
-          <li><a href="#for-adhd">For ADHD</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#waitlist">Early access</a></li>
-        </ul>
-
-        <div class="nav-actions">
-          <a href="#waitlist" class="btn btn--primary btn--sm" style="display:none" id="nav-cta">Join waitlist</a>
-          <button class="nav-hamburger" id="hamburger" aria-expanded="false" aria-controls="nav-drawer" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-
-      <div class="nav-drawer" id="nav-drawer" role="menu">
-        <a href="#for-adhd" role="menuitem">For ADHD</a>
-        <a href="#features" role="menuitem">Features</a>
-        <a href="#how-it-works" role="menuitem">How it works</a>
-        <a href="#waitlist" role="menuitem">Join the waitlist</a>
-      </div>
-    </div>
-  </nav>
-
-  <main>
-
-    <!-- ─── Hero ─── -->
-    <section class="hero" id="home" aria-labelledby="hero-heading">
-      <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
-      <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
-
-      <div class="container">
-        <div class="hero__inner">
-
-          <!-- Copy -->
-          <div class="hero__copy">
-            <span class="badge badge--amber animate-in">
-              <span aria-hidden="true">✦</span>
-              Coming soon · iOS &amp; Android
-            </span>
-
-            <h1 class="hero__headline animate-in" id="hero-heading">
-              Your mind is<br>not the<br><em>problem.</em>
-            </h1>
-
-            <div class="hero__sub animate-in">
-              <p>We love people. They're unique and imperfect and brilliant. We love software too, because almost anything is possible.</p>
-              <p>There's a whole universe of apps to make you into a productivity machine or a learning superhero. We want to make apps that are <strong>more human</strong> — for people who find life hard to manage, a little more manageable.</p>
-              <p class="hero__sub-brand">This is kynd.</p>
-            </div>
-
-            <div class="hero__actions animate-in">
-              <a href="#waitlist" class="btn btn--primary btn--lg">Join the waitlist</a>
-              <a href="#how-it-works" class="btn btn--secondary btn--lg">See how it works</a>
-            </div>
-
-            <div class="hero__trust animate-in">
-              <div class="trust-avatars">
-                <div class="trust-avatar" aria-hidden="true">A</div>
-                <div class="trust-avatar" aria-hidden="true">S</div>
-                <div class="trust-avatar" aria-hidden="true">J</div>
-              </div>
-              <span>Join <strong>2,400+</strong> people already waiting</span>
-            </div>
-          </div>
-
-          <!-- Phone illustration -->
-          <div class="hero__visual" aria-hidden="true">
-            <div class="phone-wrap">
-
-              <!-- Floating feature chips -->
-              <div class="chip chip--focus">Focus Mode</div>
-              <div class="chip chip--body">Body Doubling</div>
-              <div class="chip chip--energy">Energy Aware</div>
-              <div class="chip chip--win">Streak-Free Wins</div>
-              <div class="chip chip--capture">Smart Capture</div>
-
-              <!-- Wireframe phone SVG -->
-              <svg class="phone-svg" viewBox="0 0 280 570" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wireframe preview of the kynd app">
-
-                <!-- Phone body shadow -->
-                <rect x="16" y="20" width="260" height="540" rx="38" fill="rgba(25,40,23,0.08)"/>
-
-                <!-- Phone body -->
-                <rect x="8" y="8" width="264" height="554" rx="40" fill="white" stroke="#d0c5b2" stroke-width="1.5"/>
-
-                <!-- Side buttons (left) -->
-                <rect x="2" y="130" width="5" height="44" rx="3" fill="#d0c5b2"/>
-                <rect x="2" y="188" width="5" height="44" rx="3" fill="#d0c5b2"/>
-
-                <!-- Power button (right) -->
-                <rect x="273" y="156" width="5" height="60" rx="3" fill="#d0c5b2"/>
-
-                <!-- Dynamic island -->
-                <rect x="100" y="20" width="80" height="24" rx="12" fill="#1a2917" opacity="0.06"/>
-
-                <!-- Status bar -->
-                <text x="24" y="34" font-family="Nunito, sans-serif" font-size="9" fill="#9aaa95" font-weight="600" opacity="0.6">9:41</text>
-                <rect x="220" y="26" width="26" height="9" rx="4.5" fill="#9aaa95" opacity="0.25"/>
-                <rect x="221" y="27" width="18" height="7" rx="3.5" fill="#3d5c34" opacity="0.5"/>
-                <rect x="248" y="27" width="12" height="7" rx="2" fill="#9aaa95" opacity="0.25"/>
-                <circle cx="243" cy="30.5" r="3.5" fill="#9aaa95" opacity="0.3"/>
-
-                <!-- Screen area label / greeting header -->
-                <rect x="18" y="54" width="244" height="60" rx="16" fill="#f0f5ed"/>
-                <rect x="34" y="66" width="90" height="11" rx="5.5" fill="#3d5c34" opacity="0.35"/>
-                <rect x="34" y="84" width="60" height="9" rx="4.5" fill="#9aaa95" opacity="0.4"/>
-                <circle cx="236" cy="76" r="22" fill="#e4eedf"/>
-                <circle cx="236" cy="72" r="9" fill="#7ba06a" opacity="0.45"/>
-                <rect x="225" y="85" width="22" height="8" rx="4" fill="#7ba06a" opacity="0.3"/>
-
-                <!-- Today headline -->
-                <rect x="18" y="126" width="130" height="13" rx="6.5" fill="#3d5c34" opacity="0.4"/>
-                <rect x="214" y="127" width="48" height="11" rx="5.5" fill="#d4902a" opacity="0.25"/>
-
-                <!-- Priority task card (highlighted in brand) -->
-                <rect x="18" y="150" width="244" height="80" rx="18" fill="#3d5c34"/>
-                <rect x="34" y="164" width="14" height="14" rx="7" fill="white" opacity="0.3"/>
-                <rect x="56" y="164" width="120" height="11" rx="5.5" fill="white" opacity="0.75"/>
-                <rect x="56" y="182" width="80" height="9" rx="4.5" fill="white" opacity="0.4"/>
-                <rect x="180" y="162" width="54" height="20" rx="10" fill="white" opacity="0.15"/>
-                <rect x="190" y="169" width="34" height="7" rx="3.5" fill="white" opacity="0.5"/>
-                <rect x="34" y="204" width="48" height="8" rx="4" fill="white" opacity="0.25"/>
-                <rect x="188" y="200" width="24" height="12" rx="6" fill="white" opacity="0.2"/>
-
-                <!-- Task card 2 -->
-                <rect x="18" y="242" width="244" height="68" rx="18" fill="#f2ece0"/>
-                <rect x="34" y="256" width="14" height="14" rx="7" fill="#3d5c34" opacity="0.18"/>
-                <rect x="56" y="256" width="110" height="11" rx="5.5" fill="#3d5c34" opacity="0.35"/>
-                <rect x="56" y="274" width="78" height="9" rx="4.5" fill="#9aaa95" opacity="0.5"/>
-                <rect x="194" y="260" width="48" height="18" rx="9" fill="#e4eedf"/>
-                <rect x="202" y="266" width="32" height="6" rx="3" fill="#3d5c34" opacity="0.3"/>
-
-                <!-- Task card 3 -->
-                <rect x="18" y="322" width="244" height="68" rx="18" fill="#f2ece0"/>
-                <rect x="34" y="336" width="14" height="14" rx="7" fill="#3d5c34" opacity="0.18"/>
-                <rect x="56" y="336" width="136" height="11" rx="5.5" fill="#3d5c34" opacity="0.35"/>
-                <rect x="56" y="354" width="64" height="9" rx="4.5" fill="#9aaa95" opacity="0.5"/>
-                <rect x="228" y="336" width="14" height="14" rx="7" fill="#e4eedf"/>
-
-                <!-- Energy bar mini widget -->
-                <rect x="18" y="402" width="118" height="60" rx="16" fill="#faeaba"/>
-                <rect x="30" y="414" width="64" height="9" rx="4.5" fill="#d4902a" opacity="0.55"/>
-                <circle cx="32" cy="446" r="8" fill="#d4902a" opacity="0.8"/>
-                <circle cx="52" cy="446" r="8" fill="#d4902a" opacity="0.8"/>
-                <circle cx="72" cy="446" r="8" fill="#d4902a" opacity="0.5"/>
-                <circle cx="92" cy="446" r="8" fill="#d4902a" opacity="0.2"/>
-                <circle cx="112" cy="446" r="8" fill="#d4902a" opacity="0.1"/>
-
-                <!-- Focus mode mini widget -->
-                <rect x="144" y="402" width="118" height="60" rx="16" fill="#e4eedf"/>
-                <rect x="156" y="414" width="70" height="9" rx="4.5" fill="#3d5c34" opacity="0.45"/>
-                <rect x="158" y="431" width="40" height="14" rx="7" fill="#3d5c34" opacity="0.22"/>
-                <rect x="204" y="433" width="46" height="11" rx="5.5" fill="#3d5c34" opacity="0.3"/>
-
-                <!-- Tab bar divider -->
-                <line x1="8" y1="490" x2="272" y2="490" stroke="#e6ddd0" stroke-width="1"/>
-
-                <!-- Tab icons -->
-                <rect x="30" y="502" width="16" height="16" rx="5" fill="#9aaa95" opacity="0.3"/>
-                <rect x="30" y="520" width="16" height="3" rx="1.5" fill="transparent"/>
-
-                <!-- Active tab (center) -->
-                <circle cx="140" cy="510" r="14" fill="#3d5c34" opacity="0.12"/>
-                <rect x="132" y="504" width="16" height="16" rx="5" fill="#3d5c34" opacity="0.7"/>
-                <rect x="134" y="525" width="12" height="3" rx="1.5" fill="#3d5c34" opacity="0.6"/>
-
-                <rect x="190" y="502" width="16" height="16" rx="5" fill="#9aaa95" opacity="0.3"/>
-                <rect x="234" y="502" width="16" height="16" rx="5" fill="#9aaa95" opacity="0.3"/>
-
-                <!-- Home indicator -->
-                <rect x="110" y="546" width="60" height="4" rx="2" fill="#1a2917" opacity="0.1"/>
-              </svg>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Feature strip -->
-        <div class="feature-strip">
-          <div class="feature-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-            Focus Mode
-          </div>
-          <div class="feature-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            Energy Aware
-          </div>
-          <div class="feature-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            Body Doubling
-          </div>
-          <div class="feature-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            Mood Tracking
-          </div>
-          <div class="feature-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Routine Builder
-          </div>
-          <div class="feature-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Wins Celebration
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Stats band ─── -->
-    <div class="band" aria-label="ADHD statistics">
-      <div class="container">
-        <div class="band__inner">
-          <div class="band__stat animate-in">
-            <div class="band__stat-number">1 in 20</div>
-            <div class="band__stat-label">adults worldwide<br>have ADHD</div>
-          </div>
-          <div class="band__divider" aria-hidden="true"></div>
-          <div class="band__stat animate-in">
-            <div class="band__stat-number">80%</div>
-            <div class="band__stat-label">of productivity apps<br>weren't built for us</div>
-          </div>
-          <div class="band__divider" aria-hidden="true"></div>
-          <div class="band__stat animate-in">
-            <div class="band__stat-number">kynd</div>
-            <div class="band__stat-label">is built differently —<br>from day one</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─── Problem section ─── -->
-    <section class="section" id="for-adhd" aria-labelledby="problem-heading">
-      <div class="container">
-        <div class="sh sh--center">
-          <span class="eyebrow">The ADHD experience</span>
-          <h2 id="problem-heading">Productivity apps weren't built for how you think</h2>
-          <p>Most apps assume you can just… start. They don't account for executive dysfunction, time blindness, or the overwhelm that comes with too many choices.</p>
-        </div>
-
-        <div class="problem-grid">
-          <div class="problem-card problem-card--highlight animate-in">
-            <div class="problem-card__icon" aria-hidden="true">😶‍🌫️</div>
-            <h3>Task paralysis</h3>
-            <p>Staring at a 40-item to-do list, completely unable to pick where to start — even when the deadline is real.</p>
-          </div>
-          <div class="problem-card animate-in">
-            <div class="problem-card__icon" aria-hidden="true">⏳</div>
-            <h3>Time blindness</h3>
-            <p>Hours vanish. Every deadline feels like a surprise, even the ones you wrote down.</p>
-          </div>
-          <div class="problem-card animate-in">
-            <div class="problem-card__icon" aria-hidden="true">🌀</div>
-            <h3>Shame spirals</h3>
-            <p>Missing one day breaks the streak, and suddenly you've abandoned the whole system — again.</p>
-          </div>
-        </div>
-
-        <!-- Bridge to solution -->
-        <div style="text-align:center; margin-top: var(--s12);">
-          <p style="font-size: var(--t-xl); font-weight:700; color: var(--brand); margin-bottom: var(--s5);">kynd was designed to change all of this.</p>
-          <a href="#features" class="btn btn--brand btn--lg">See the features →</a>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ─── Features ─── -->
-    <section class="section features-section" id="features" aria-labelledby="features-heading">
-      <div class="container">
-        <div class="sh sh--center">
-          <span class="eyebrow">What's inside</span>
-          <h2 id="features-heading">Everything your brain actually needs</h2>
-          <p>No complexity, no overwhelm. kynd gives you the tools that genuinely work for ADHD minds — flexible, forgiving, and kind.</p>
-        </div>
-
-        <div class="features-grid">
-
-          <!-- Hero feature -->
-          <div class="feature-card feature-card--hero animate-in">
-            <div class="icon-box" style="background:rgba(255,255,255,0.15); color:white; margin-bottom: var(--s5)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-            </div>
-            <h3 style="font-size: var(--t-2xl); margin-bottom: var(--s4);">Focus Mode</h3>
-            <p style="font-size: var(--t-lg); opacity:0.8; line-height:1.7; max-width:420px;">One task. Full screen. Everything else gone. When the world is too loud, kynd creates a quiet corner for just the thing that matters right now.</p>
-            <a href="#waitlist" class="btn btn--white" style="margin-top: var(--s6);">Learn more</a>
-          </div>
-
-          <div class="feature-card animate-in">
-            <div class="icon-box icon-box--amber">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </div>
-            <h3>Energy-Aware Scheduling</h3>
-            <p>Tell kynd how you're feeling. It matches tasks to your energy level — no more forcing deep work when you're running on empty.</p>
-          </div>
-
-          <div class="feature-card animate-in">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            </div>
-            <h3>Smart Task Capture</h3>
-            <p>Voice, text, or photo — capture tasks however your brain is working in that moment. kynd organises them later.</p>
-          </div>
-
-          <div class="feature-card animate-in">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3>Body Doubling</h3>
-            <p>Work alongside others in live virtual sessions. The presence of another person — even in silence — can make starting feel possible.</p>
-          </div>
-
-          <div class="feature-card animate-in">
-            <div class="icon-box icon-box--terracotta">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <h3>Streak-Free Wins</h3>
-            <p>kynd celebrates what you <em>did</em> do — not what you didn't. No punishment for off days. Every win counts, no matter how small.</p>
-          </div>
-
-          <div class="feature-card animate-in">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
-            <h3>Routine Builder</h3>
-            <p>Gentle, flexible routines that adapt when life gets messy. Because it will. And that's okay.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── How it works ─── -->
-    <section class="section" id="how-it-works" aria-labelledby="how-heading">
-      <div class="container">
-        <div class="sh sh--center">
-          <span class="eyebrow">Getting started</span>
-          <h2 id="how-heading">Three steps to a calmer day</h2>
-          <p>Getting started with kynd takes minutes. You don't need a perfect system — you just need a beginning.</p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step animate-in">
-            <div class="step__number">1</div>
-            <h3>Tell kynd about you</h3>
-            <p>Share how you work best, what your energy patterns look like, and what you're trying to get done. No lengthy questionnaire — just a friendly conversation.</p>
-          </div>
-          <div class="step step--active animate-in">
-            <div class="step__number">2</div>
-            <h3>kynd learns your patterns</h3>
-            <p>Over time, kynd notices when you're at your best, what helps you focus, and where you get stuck — and adapts to you, not the other way round.</p>
-          </div>
-          <div class="step animate-in">
-            <div class="step__number">3</div>
-            <h3>Celebrate every win</h3>
-            <p>kynd gently guides you through your day and celebrates progress — big, small, and everything in between. No streaks to break. No shame.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── ADHD-first design ─── -->
-    <section class="section adhd-section" aria-labelledby="adhd-heading">
-      <div class="container">
-        <div class="sh sh--center">
-          <span class="eyebrow">Designed differently</span>
-          <h2 id="adhd-heading">Built with the ADHD brain in mind</h2>
-          <p>kynd isn't a generic productivity app with an ADHD label stuck on. Every design decision — from the colour palette to the notifications — was made with neurodivergent users at the centre.</p>
-        </div>
-
-        <div class="adhd-pillars">
-          <div class="pillar animate-in">
-            <div class="pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </div>
-            <div class="pillar__text">
-              <h3>No shame, ever</h3>
-              <p>kynd never uses language that makes you feel bad for being human. Missed a day? The app starts fresh with you, without comment.</p>
-            </div>
-          </div>
-
-          <div class="pillar animate-in">
-            <div class="pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <div class="pillar__text">
-              <h3>Low-overwhelm design</h3>
-              <p>Never more than three things asking for your attention at once. The interface is calm by design — generous white space, clear hierarchy, no decision fatigue.</p>
-            </div>
-          </div>
-
-          <div class="pillar animate-in">
-            <div class="pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            </div>
-            <div class="pillar__text">
-              <h3>Adapts to real life</h3>
-              <p>Plans fall apart. That's fine. kynd recalibrates without drama — sliding tasks forward, adjusting priorities, keeping you moving.</p>
-            </div>
-          </div>
-
-          <div class="pillar animate-in">
-            <div class="pillar__icon" style="background: var(--amber-lt); color: var(--amber)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="pillar__text">
-              <h3>Research-backed</h3>
-              <p>kynd is built with guidance from ADHD specialists, occupational therapists, and — most importantly — people with ADHD who told us what actually helps.</p>
-            </div>
-          </div>
-
-          <div class="pillar animate-in">
-            <div class="pillar__icon" style="background: var(--terracotta-lt); color: var(--terracotta)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <div class="pillar__text">
-              <h3>Celebrate small wins</h3>
-              <p>Getting dressed. Sending one email. Making the call. kynd recognises that for an ADHD brain, these are real achievements worth celebrating.</p>
-            </div>
-          </div>
-
-          <div class="pillar animate-in">
-            <div class="pillar__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-            </div>
-            <div class="pillar__text">
-              <h3>Gentle nudges, not alarms</h3>
-              <p>Notifications that feel supportive rather than demanding. kynd checks in, it doesn't bark orders.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Testimonials (placeholder) ─── -->
-    <section class="section section--sm" aria-labelledby="testimonials-heading">
-      <div class="container">
-        <div class="sh sh--center">
-          <span class="eyebrow">Early feedback</span>
-          <h2 id="testimonials-heading">What our beta testers are saying</h2>
-        </div>
-
-        <div class="testimonials-grid">
-          <div class="testimonial animate-in">
-            <p class="testimonial__quote">"Finally an app that doesn't make me feel broken for not using it perfectly. kynd just… gets it."</p>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar" aria-hidden="true">A</div>
-              <div>
-                <div class="testimonial__name">Alex M.</div>
-                <div class="testimonial__meta">Diagnosed ADHD, age 28</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial animate-in">
-            <p class="testimonial__quote">"The energy check-in at the start of every day has genuinely changed how I plan. I stop trying to force productivity when I'm depleted."</p>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar" style="background: var(--amber-lt); color: var(--amber);" aria-hidden="true">S</div>
-              <div>
-                <div class="testimonial__name">Sam T.</div>
-                <div class="testimonial__meta">ADHD + anxiety, age 34</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="testimonial animate-in">
-            <p class="testimonial__quote">"Body doubling sessions have been a game changer. I got more done in one session than I had all week. The shame-free wins thing is so real."</p>
-            <div class="testimonial__author">
-              <div class="testimonial__avatar" style="background: var(--terracotta-lt); color: var(--terracotta);" aria-hidden="true">J</div>
-              <div>
-                <div class="testimonial__name">Jordan K.</div>
-                <div class="testimonial__meta">Late-diagnosed ADHD, age 41</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p style="text-align:center; margin-top: var(--s8); font-size: var(--t-sm); color: var(--text-dim); font-style: italic;">
-          Names changed. Testimonials from closed beta testers.
-        </p>
-      </div>
-    </section>
-
-    <!-- ─── Waitlist CTA ─── -->
-    <section class="waitlist-section section" id="waitlist" aria-labelledby="waitlist-heading">
-      <div class="container">
-        <div class="waitlist-inner">
-          <span class="eyebrow eyebrow--white">Early access</span>
-          <h2 id="waitlist-heading">Be first to know when kynd launches</h2>
-          <p>Join the waitlist and get early access, launch pricing, and updates as we build. No spam — just progress.</p>
-
-          <form class="waitlist-form" action="#" onsubmit="handleWaitlist(event)">
-            <label for="waitlist-email" class="visually-hidden">Email address</label>
-            <input
-              class="input"
-              type="email"
-              id="waitlist-email"
-              name="email"
-              placeholder="your@email.com"
-              autocomplete="email"
-              required
-            />
-            <button type="submit" class="btn btn--primary btn--lg">Join waitlist</button>
-          </form>
-
-          <div id="waitlist-success" style="display:none; color:white; font-weight:700; font-size: var(--t-lg); padding: var(--s4);">
-            ✓ You're on the list! We'll be in touch.
-          </div>
-
-          <div class="waitlist-social">
-            <span class="waitlist-social-num">2,400+</span>
-            <span>people already on the waitlist</span>
-            <div class="waitlist-dot" aria-hidden="true"></div>
-            <span>No credit card needed</span>
-          </div>
-
-          <div class="appstore-badges" aria-label="Coming to app stores">
-            <div class="store-badge">
-              <svg class="store-badge__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c.7 0 1.4.1 2 .3M12 22c-5.5 0-10-4.5-10-10S6.5 2 12 2"/><path d="M12 22c1.7 0 3.2-.4 4.6-1.1M17 9l-5 5-5-5"/><path d="M12 3v10"/></svg>
-              <div>
-                <div class="store-badge__label">Download on the</div>
-                <div class="store-badge__name">App Store</div>
-              </div>
-            </div>
-            <div class="store-badge">
-              <svg class="store-badge__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <div>
-                <div class="store-badge__label">Get it on</div>
-                <div class="store-badge__name">Google Play</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ─── Footer ─── -->
-  <footer class="site-footer" aria-label="Site footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <img src="logomark.png" alt="kynd" />
-          </div>
-          <p class="footer-tagline">A life management app designed for the ADHD mind — kind, flexible, and genuinely helpful.</p>
-        </div>
-
-        <nav class="footer-cols" aria-label="Footer navigation">
-          <div class="footer-col">
-            <h4>Product</h4>
-            <ul>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#how-it-works">How it works</a></li>
-              <li><a href="#for-adhd">For ADHD</a></li>
-              <li><a href="#waitlist">Early access</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Research</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Connect</h4>
-            <ul>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">TikTok</a></li>
-              <li><a href="#">Community</a></li>
-              <li><a href="#">Newsletter</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 kynd. All rights reserved.</p>
-        <nav class="footer-legal" aria-label="Legal navigation">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Accessibility</a>
-        </nav>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ─── Scripts ─── -->
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const drawer    = document.getElementById('nav-drawer');
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = drawer.classList.toggle('is-open');
-      hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    // Close drawer when a link is clicked
-    drawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        drawer.classList.remove('is-open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    // Show nav CTA after scrolling past hero
-    const navCta = document.getElementById('nav-cta');
-    const observer = new IntersectionObserver(
-      ([entry]) => { navCta.style.display = entry.isIntersecting ? 'none' : 'inline-flex'; },
-      { threshold: 0.1 }
-    );
-    observer.observe(document.getElementById('home'));
-
-    // Waitlist form feedback (non-functional)
-    function handleWaitlist(e) {
-      e.preventDefault();
-      document.querySelector('.waitlist-form').style.display  = 'none';
-      document.getElementById('waitlist-success').style.display = 'block';
-    }
-
-    // Animate sections on scroll
-    const animateEls = document.querySelectorAll('.animate-in');
-    const io = new IntersectionObserver(
-      entries => entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-          io.unobserve(entry.target);
+      .problem-card__icon {
+        font-size: 2.5rem;
+        margin-bottom: var(--s4);
+        line-height: 1;
+      }
+      .problem-card h3 {
+        font-size: var(--t-xl);
+        margin-bottom: var(--s3);
+      }
+      .problem-card p {
+        font-size: var(--t-base);
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+      .problem-card--highlight {
+        background: var(--brand-xpale);
+        border-color: var(--brand-pale);
+      }
+
+      @media (min-width: 680px) {
+        .problem-grid {
+          grid-template-columns: repeat(3, 1fr);
         }
-      }),
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    animateEls.forEach(el => {
-      el.style.animationPlayState = 'paused';
-      io.observe(el);
-    });
-  </script>
+      }
 
-</body>
+      /* ═══════════════════════════════ FEATURES ═══════════════════════════ */
+      .features-section {
+        background: var(--surface);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--s5);
+      }
+
+      .feature-card {
+        padding: var(--s8);
+        border-radius: var(--r-xl);
+        background: var(--white);
+        box-shadow: var(--shadow-xs);
+        transition:
+          transform var(--dur) var(--ease),
+          box-shadow var(--dur) var(--ease);
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-md);
+      }
+      .feature-card h3 {
+        font-size: var(--t-xl);
+        margin-bottom: var(--s3);
+      }
+      .feature-card p {
+        font-size: var(--t-sm);
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      /* Highlight card — spans full width on mobile, 2 cols on desktop */
+      .feature-card--hero {
+        background: var(--brand-dark);
+        color: var(--white);
+        grid-column: span 1;
+      }
+      .feature-card--hero h3,
+      .feature-card--hero p {
+        color: var(--white);
+      }
+      .feature-card--hero p {
+        opacity: 0.8;
+      }
+      .feature-card--hero .icon-box {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--white);
+      }
+
+      @media (min-width: 600px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 920px) {
+        .features-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .feature-card--hero {
+          grid-column: span 2;
+        }
+      }
+
+      /* ═══════════════════════════════ HOW IT WORKS ═══════════════════════ */
+      .steps-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--s8);
+        position: relative;
+      }
+
+      /* Connecting line on desktop */
+      @media (min-width: 768px) {
+        .steps-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: var(--s6);
+        }
+        .steps-grid::before {
+          content: "";
+          position: absolute;
+          top: 36px;
+          left: calc(16.66% + 20px);
+          right: calc(16.66% + 20px);
+          height: 2px;
+          background: linear-gradient(
+            90deg,
+            var(--brand-pale),
+            var(--brand-pale)
+          );
+          border: 1px dashed var(--brand-light);
+          z-index: 0;
+          opacity: 0.6;
+        }
+      }
+
+      .step {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+      .step__number {
+        width: 72px;
+        height: 72px;
+        border-radius: var(--r-pill);
+        background: var(--brand-pale);
+        color: var(--brand);
+        font-size: var(--t-2xl);
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--s5);
+        border: 3px solid var(--white);
+        box-shadow: 0 0 0 6px var(--brand-pale);
+      }
+      .step--active .step__number {
+        background: var(--brand);
+        color: var(--white);
+        box-shadow:
+          0 0 0 6px var(--brand-pale),
+          var(--shadow-md);
+      }
+      .step h3 {
+        font-size: var(--t-xl);
+        margin-bottom: var(--s3);
+      }
+      .step p {
+        font-size: var(--t-base);
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      /* ═══════════════════════════════ ADHD FIRST ═════════════════════════ */
+      .adhd-section {
+        background: var(--brand-xpale);
+      }
+
+      .adhd-pillars {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--s5);
+      }
+
+      .pillar {
+        display: flex;
+        gap: var(--s5);
+        align-items: flex-start;
+        background: var(--white);
+        border-radius: var(--r-xl);
+        padding: var(--s6);
+        box-shadow: var(--shadow-xs);
+        transition:
+          transform var(--dur) var(--ease),
+          box-shadow var(--dur) var(--ease);
+      }
+      .pillar:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-sm);
+      }
+      .pillar__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: var(--r-md);
+        background: var(--brand-pale);
+        color: var(--brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .pillar__icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .pillar__text h3 {
+        font-size: var(--t-lg);
+        margin-bottom: var(--s2);
+      }
+      .pillar__text p {
+        font-size: var(--t-sm);
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      @media (min-width: 680px) {
+        .adhd-pillars {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* ═══════════════════════════════ TESTIMONIALS ═══════════════════════ */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--s5);
+      }
+      .testimonial {
+        background: var(--white);
+        border-radius: var(--r-xl);
+        padding: var(--s8);
+        box-shadow: var(--shadow-xs);
+        border: 1.5px solid var(--surface-mid);
+      }
+      .testimonial__quote {
+        font-size: var(--t-lg);
+        font-weight: 600;
+        line-height: 1.65;
+        color: var(--text-dark);
+        margin-bottom: var(--s5);
+        font-style: italic;
+      }
+      .testimonial__author {
+        display: flex;
+        align-items: center;
+        gap: var(--s3);
+      }
+      .testimonial__avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--r-pill);
+        background: var(--brand-pale);
+        color: var(--brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: var(--t-sm);
+        flex-shrink: 0;
+      }
+      .testimonial__name {
+        font-weight: 700;
+        font-size: var(--t-sm);
+        color: var(--text-dark);
+      }
+      .testimonial__meta {
+        font-size: var(--t-xs);
+        color: var(--text-muted);
+      }
+      .testimonial--placeholder .testimonial__quote {
+        color: var(--text-dim);
+        font-style: normal;
+      }
+
+      @media (min-width: 768px) {
+        .testimonials-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* ═══════════════════════════════ WAITLIST ═══════════════════════════ */
+      .waitlist-section {
+        background: var(--brand-dark);
+        position: relative;
+        overflow: hidden;
+      }
+      .waitlist-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 80% 60% at 20% 50%,
+            rgba(93, 140, 75, 0.22) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 60% 80% at 80% 50%,
+            rgba(196, 103, 63, 0.12) 0%,
+            transparent 65%
+          );
+        pointer-events: none;
+      }
+      .waitlist-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 580px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .waitlist-inner h2 {
+        color: var(--white);
+        font-size: var(--t-4xl);
+        margin-bottom: var(--s5);
+      }
+      .waitlist-inner p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: var(--t-lg);
+        line-height: 1.7;
+        margin-bottom: var(--s8);
+      }
+
+      .waitlist-form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s3);
+        margin-bottom: var(--s6);
+      }
+      .waitlist-form .input {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        color: var(--white);
+      }
+      .waitlist-form .input::placeholder {
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .waitlist-form .input:focus {
+        border-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+      }
+
+      @media (min-width: 520px) {
+        .waitlist-form {
+          flex-direction: row;
+        }
+        .waitlist-form .input {
+          flex: 1;
+        }
+      }
+
+      .waitlist-social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--s3);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: var(--t-sm);
+        font-weight: 600;
+      }
+      .waitlist-social-num {
+        color: var(--white);
+        font-weight: 800;
+      }
+      .waitlist-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .appstore-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s4);
+        justify-content: center;
+        margin-top: var(--s8);
+      }
+      .store-badge {
+        display: flex;
+        align-items: center;
+        gap: var(--s3);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1.5px solid rgba(255, 255, 255, 0.22);
+        border-radius: var(--r-lg);
+        padding: var(--s3) var(--s5);
+        color: var(--white);
+        transition: background var(--dur);
+        cursor: default;
+      }
+      .store-badge:hover {
+        background: rgba(255, 255, 255, 0.18);
+      }
+      .store-badge__icon {
+        flex-shrink: 0;
+        opacity: 0.85;
+      }
+      .store-badge__label {
+        font-size: var(--t-xs);
+        font-weight: 600;
+        opacity: 0.6;
+        letter-spacing: 0.05em;
+        line-height: 1.2;
+      }
+      .store-badge__name {
+        font-size: var(--t-base);
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      /* ═══════════════════════════════ FOOTER ════════════════════════════ */
+      .site-footer {
+        background: var(--text-dark);
+        padding-block: var(--s16) var(--s10);
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--s10);
+        margin-bottom: var(--s12);
+        padding-bottom: var(--s10);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-brand {
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--s4);
+      }
+      .footer-logo img {
+        height: 4rem;
+        width: auto;
+        filter: brightness(0) invert(1) opacity(0.9);
+      }
+      .footer-tagline {
+        font-size: var(--t-sm);
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.7;
+        max-width: 280px;
+      }
+
+      .footer-cols {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--s8);
+      }
+      .footer-col h4 {
+        font-size: var(--t-xs);
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: var(--s4);
+      }
+      .footer-col ul {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s3);
+      }
+      .footer-col a {
+        font-size: var(--t-sm);
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.6);
+        transition: color var(--dur);
+      }
+      .footer-col a:hover {
+        color: var(--white);
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--s4);
+        align-items: center;
+        justify-content: space-between;
+      }
+      .footer-copy {
+        font-size: var(--t-xs);
+        color: rgba(255, 255, 255, 0.3);
+        font-weight: 600;
+      }
+      .footer-legal {
+        display: flex;
+        gap: var(--s5);
+      }
+      .footer-legal a {
+        font-size: var(--t-xs);
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.3);
+        transition: color var(--dur);
+      }
+      .footer-legal a:hover {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      @media (min-width: 780px) {
+        .footer-top {
+          grid-template-columns: 280px 1fr;
+        }
+        .footer-cols {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ─── Navigation ─── -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="container">
+        <div class="nav-inner">
+          <a href="#home" class="nav-logo" aria-label="kynd home">
+            <img src="logomark.png" alt="kynd" />
+          </a>
+
+          <ul class="nav-links" role="list">
+            <li><a href="#for-adhd">For ADHD</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#waitlist">Early access</a></li>
+          </ul>
+
+          <div class="nav-actions">
+            <a
+              href="#waitlist"
+              class="btn btn--primary btn--sm"
+              style="display: none"
+              id="nav-cta"
+              >Join waitlist</a
+            >
+            <button
+              class="nav-hamburger"
+              id="hamburger"
+              aria-expanded="false"
+              aria-controls="nav-drawer"
+              aria-label="Toggle menu"
+            >
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="nav-drawer" id="nav-drawer" role="menu">
+          <a href="#for-adhd" role="menuitem">For ADHD</a>
+          <a href="#features" role="menuitem">Features</a>
+          <a href="#how-it-works" role="menuitem">How it works</a>
+          <a href="#waitlist" role="menuitem">Join the waitlist</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- ─── Hero ─── -->
+      <section class="hero" id="home" aria-labelledby="hero-heading">
+        <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+        <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+        <div class="hero__blob hero__blob--3" aria-hidden="true"></div>
+
+        <div class="container">
+          <div class="hero__inner">
+            <!-- Copy -->
+            <div class="hero__copy">
+              <h1 class="hero__headline animate-in" id="hero-heading">
+                The productivity app for <em>different kinds</em> of minds.
+              </h1>
+
+              <div class="hero__sub animate-in">
+                <p>
+                  We love people. They're unique and imperfect and brilliant. We
+                  love software too, because almost anything is possible.
+                </p>
+                <p>
+                  There's a whole universe of apps to make you into a
+                  productivity machine or a learning superhero. We want to make
+                  apps that are <strong>more human</strong> — for people who
+                  find life hard to manage, a little more manageable.
+                </p>
+                <p class="hero__sub-brand">This is kynd.</p>
+              </div>
+
+              <div class="hero__actions animate-in">
+                <a href="#how-it-works" class="btn btn--secondary btn--lg"
+                  >See how it works</a
+                >
+              </div>
+
+              <div class="hero__trust animate-in">
+                <div class="trust-avatars">
+                  <div class="trust-avatar" aria-hidden="true">A</div>
+                  <div class="trust-avatar" aria-hidden="true">S</div>
+                  <div class="trust-avatar" aria-hidden="true">J</div>
+                </div>
+                <span>Join <strong>2,400+</strong> people already waiting</span>
+              </div>
+            </div>
+
+            <!-- Phone illustration -->
+            <div class="hero__visual" aria-hidden="true">
+              <div class="phone-wrap">
+                <!-- Floating feature chips -->
+                <div class="chip chip--focus">Focus Mode</div>
+                <div class="chip chip--body">Body Doubling</div>
+                <div class="chip chip--energy">Energy Aware</div>
+                <div class="chip chip--win">Streak-Free Wins</div>
+                <div class="chip chip--capture">Smart Capture</div>
+
+                <!-- Wireframe phone SVG -->
+                <svg
+                  class="phone-svg"
+                  viewBox="0 0 280 570"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="img"
+                  aria-label="Wireframe preview of the kynd app"
+                >
+                  <!-- Phone body shadow -->
+                  <rect
+                    x="16"
+                    y="20"
+                    width="260"
+                    height="540"
+                    rx="38"
+                    fill="rgba(25,40,23,0.08)"
+                  />
+
+                  <!-- Phone body -->
+                  <rect
+                    x="8"
+                    y="8"
+                    width="264"
+                    height="554"
+                    rx="40"
+                    fill="white"
+                    stroke="#d0c5b2"
+                    stroke-width="1.5"
+                  />
+
+                  <!-- Side buttons (left) -->
+                  <rect
+                    x="2"
+                    y="130"
+                    width="5"
+                    height="44"
+                    rx="3"
+                    fill="#d0c5b2"
+                  />
+                  <rect
+                    x="2"
+                    y="188"
+                    width="5"
+                    height="44"
+                    rx="3"
+                    fill="#d0c5b2"
+                  />
+
+                  <!-- Power button (right) -->
+                  <rect
+                    x="273"
+                    y="156"
+                    width="5"
+                    height="60"
+                    rx="3"
+                    fill="#d0c5b2"
+                  />
+
+                  <!-- Dynamic island -->
+                  <rect
+                    x="100"
+                    y="20"
+                    width="80"
+                    height="24"
+                    rx="12"
+                    fill="#1a2917"
+                    opacity="0.06"
+                  />
+
+                  <!-- Status bar -->
+                  <text
+                    x="24"
+                    y="34"
+                    font-family="Nunito, sans-serif"
+                    font-size="9"
+                    fill="#9aaa95"
+                    font-weight="600"
+                    opacity="0.6"
+                  >
+                    9:41
+                  </text>
+                  <rect
+                    x="220"
+                    y="26"
+                    width="26"
+                    height="9"
+                    rx="4.5"
+                    fill="#9aaa95"
+                    opacity="0.25"
+                  />
+                  <rect
+                    x="221"
+                    y="27"
+                    width="18"
+                    height="7"
+                    rx="3.5"
+                    fill="#3d5c34"
+                    opacity="0.5"
+                  />
+                  <rect
+                    x="248"
+                    y="27"
+                    width="12"
+                    height="7"
+                    rx="2"
+                    fill="#9aaa95"
+                    opacity="0.25"
+                  />
+                  <circle
+                    cx="243"
+                    cy="30.5"
+                    r="3.5"
+                    fill="#9aaa95"
+                    opacity="0.3"
+                  />
+
+                  <!-- Screen area label / greeting header -->
+                  <rect
+                    x="18"
+                    y="54"
+                    width="244"
+                    height="60"
+                    rx="16"
+                    fill="#f0f5ed"
+                  />
+                  <rect
+                    x="34"
+                    y="66"
+                    width="90"
+                    height="11"
+                    rx="5.5"
+                    fill="#3d5c34"
+                    opacity="0.35"
+                  />
+                  <rect
+                    x="34"
+                    y="84"
+                    width="60"
+                    height="9"
+                    rx="4.5"
+                    fill="#9aaa95"
+                    opacity="0.4"
+                  />
+                  <circle cx="236" cy="76" r="22" fill="#e4eedf" />
+                  <circle
+                    cx="236"
+                    cy="72"
+                    r="9"
+                    fill="#7ba06a"
+                    opacity="0.45"
+                  />
+                  <rect
+                    x="225"
+                    y="85"
+                    width="22"
+                    height="8"
+                    rx="4"
+                    fill="#7ba06a"
+                    opacity="0.3"
+                  />
+
+                  <!-- Today headline -->
+                  <rect
+                    x="18"
+                    y="126"
+                    width="130"
+                    height="13"
+                    rx="6.5"
+                    fill="#3d5c34"
+                    opacity="0.4"
+                  />
+                  <rect
+                    x="214"
+                    y="127"
+                    width="48"
+                    height="11"
+                    rx="5.5"
+                    fill="#d4902a"
+                    opacity="0.25"
+                  />
+
+                  <!-- Priority task card (highlighted in brand) -->
+                  <rect
+                    x="18"
+                    y="150"
+                    width="244"
+                    height="80"
+                    rx="18"
+                    fill="#3d5c34"
+                  />
+                  <rect
+                    x="34"
+                    y="164"
+                    width="14"
+                    height="14"
+                    rx="7"
+                    fill="white"
+                    opacity="0.3"
+                  />
+                  <rect
+                    x="56"
+                    y="164"
+                    width="120"
+                    height="11"
+                    rx="5.5"
+                    fill="white"
+                    opacity="0.75"
+                  />
+                  <rect
+                    x="56"
+                    y="182"
+                    width="80"
+                    height="9"
+                    rx="4.5"
+                    fill="white"
+                    opacity="0.4"
+                  />
+                  <rect
+                    x="180"
+                    y="162"
+                    width="54"
+                    height="20"
+                    rx="10"
+                    fill="white"
+                    opacity="0.15"
+                  />
+                  <rect
+                    x="190"
+                    y="169"
+                    width="34"
+                    height="7"
+                    rx="3.5"
+                    fill="white"
+                    opacity="0.5"
+                  />
+                  <rect
+                    x="34"
+                    y="204"
+                    width="48"
+                    height="8"
+                    rx="4"
+                    fill="white"
+                    opacity="0.25"
+                  />
+                  <rect
+                    x="188"
+                    y="200"
+                    width="24"
+                    height="12"
+                    rx="6"
+                    fill="white"
+                    opacity="0.2"
+                  />
+
+                  <!-- Task card 2 -->
+                  <rect
+                    x="18"
+                    y="242"
+                    width="244"
+                    height="68"
+                    rx="18"
+                    fill="#f2ece0"
+                  />
+                  <rect
+                    x="34"
+                    y="256"
+                    width="14"
+                    height="14"
+                    rx="7"
+                    fill="#3d5c34"
+                    opacity="0.18"
+                  />
+                  <rect
+                    x="56"
+                    y="256"
+                    width="110"
+                    height="11"
+                    rx="5.5"
+                    fill="#3d5c34"
+                    opacity="0.35"
+                  />
+                  <rect
+                    x="56"
+                    y="274"
+                    width="78"
+                    height="9"
+                    rx="4.5"
+                    fill="#9aaa95"
+                    opacity="0.5"
+                  />
+                  <rect
+                    x="194"
+                    y="260"
+                    width="48"
+                    height="18"
+                    rx="9"
+                    fill="#e4eedf"
+                  />
+                  <rect
+                    x="202"
+                    y="266"
+                    width="32"
+                    height="6"
+                    rx="3"
+                    fill="#3d5c34"
+                    opacity="0.3"
+                  />
+
+                  <!-- Task card 3 -->
+                  <rect
+                    x="18"
+                    y="322"
+                    width="244"
+                    height="68"
+                    rx="18"
+                    fill="#f2ece0"
+                  />
+                  <rect
+                    x="34"
+                    y="336"
+                    width="14"
+                    height="14"
+                    rx="7"
+                    fill="#3d5c34"
+                    opacity="0.18"
+                  />
+                  <rect
+                    x="56"
+                    y="336"
+                    width="136"
+                    height="11"
+                    rx="5.5"
+                    fill="#3d5c34"
+                    opacity="0.35"
+                  />
+                  <rect
+                    x="56"
+                    y="354"
+                    width="64"
+                    height="9"
+                    rx="4.5"
+                    fill="#9aaa95"
+                    opacity="0.5"
+                  />
+                  <rect
+                    x="228"
+                    y="336"
+                    width="14"
+                    height="14"
+                    rx="7"
+                    fill="#e4eedf"
+                  />
+
+                  <!-- Energy bar mini widget -->
+                  <rect
+                    x="18"
+                    y="402"
+                    width="118"
+                    height="60"
+                    rx="16"
+                    fill="#faeaba"
+                  />
+                  <rect
+                    x="30"
+                    y="414"
+                    width="64"
+                    height="9"
+                    rx="4.5"
+                    fill="#d4902a"
+                    opacity="0.55"
+                  />
+                  <circle cx="32" cy="446" r="8" fill="#d4902a" opacity="0.8" />
+                  <circle cx="52" cy="446" r="8" fill="#d4902a" opacity="0.8" />
+                  <circle cx="72" cy="446" r="8" fill="#d4902a" opacity="0.5" />
+                  <circle cx="92" cy="446" r="8" fill="#d4902a" opacity="0.2" />
+                  <circle
+                    cx="112"
+                    cy="446"
+                    r="8"
+                    fill="#d4902a"
+                    opacity="0.1"
+                  />
+
+                  <!-- Focus mode mini widget -->
+                  <rect
+                    x="144"
+                    y="402"
+                    width="118"
+                    height="60"
+                    rx="16"
+                    fill="#e4eedf"
+                  />
+                  <rect
+                    x="156"
+                    y="414"
+                    width="70"
+                    height="9"
+                    rx="4.5"
+                    fill="#3d5c34"
+                    opacity="0.45"
+                  />
+                  <rect
+                    x="158"
+                    y="431"
+                    width="40"
+                    height="14"
+                    rx="7"
+                    fill="#3d5c34"
+                    opacity="0.22"
+                  />
+                  <rect
+                    x="204"
+                    y="433"
+                    width="46"
+                    height="11"
+                    rx="5.5"
+                    fill="#3d5c34"
+                    opacity="0.3"
+                  />
+
+                  <!-- Tab bar divider -->
+                  <line
+                    x1="8"
+                    y1="490"
+                    x2="272"
+                    y2="490"
+                    stroke="#e6ddd0"
+                    stroke-width="1"
+                  />
+
+                  <!-- Tab icons -->
+                  <rect
+                    x="30"
+                    y="502"
+                    width="16"
+                    height="16"
+                    rx="5"
+                    fill="#9aaa95"
+                    opacity="0.3"
+                  />
+                  <rect
+                    x="30"
+                    y="520"
+                    width="16"
+                    height="3"
+                    rx="1.5"
+                    fill="transparent"
+                  />
+
+                  <!-- Active tab (center) -->
+                  <circle
+                    cx="140"
+                    cy="510"
+                    r="14"
+                    fill="#3d5c34"
+                    opacity="0.12"
+                  />
+                  <rect
+                    x="132"
+                    y="504"
+                    width="16"
+                    height="16"
+                    rx="5"
+                    fill="#3d5c34"
+                    opacity="0.7"
+                  />
+                  <rect
+                    x="134"
+                    y="525"
+                    width="12"
+                    height="3"
+                    rx="1.5"
+                    fill="#3d5c34"
+                    opacity="0.6"
+                  />
+
+                  <rect
+                    x="190"
+                    y="502"
+                    width="16"
+                    height="16"
+                    rx="5"
+                    fill="#9aaa95"
+                    opacity="0.3"
+                  />
+                  <rect
+                    x="234"
+                    y="502"
+                    width="16"
+                    height="16"
+                    rx="5"
+                    fill="#9aaa95"
+                    opacity="0.3"
+                  />
+
+                  <!-- Home indicator -->
+                  <rect
+                    x="110"
+                    y="546"
+                    width="60"
+                    height="4"
+                    rx="2"
+                    fill="#1a2917"
+                    opacity="0.1"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature strip -->
+          <div class="feature-strip">
+            <div class="feature-pill">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+              Focus Mode
+            </div>
+            <div class="feature-pill">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+              Energy Aware
+            </div>
+            <div class="feature-pill">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              Body Doubling
+            </div>
+            <div class="feature-pill">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              Mood Tracking
+            </div>
+            <div class="feature-pill">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              Routine Builder
+            </div>
+            <div class="feature-pill">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              Wins Celebration
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Stats band ─── -->
+      <div class="band" aria-label="ADHD statistics">
+        <div class="container">
+          <div class="band__inner">
+            <div class="band__stat animate-in">
+              <div class="band__stat-number">1 in 20</div>
+              <div class="band__stat-label">
+                adults worldwide<br />have ADHD
+              </div>
+            </div>
+            <div class="band__divider" aria-hidden="true"></div>
+            <div class="band__stat animate-in">
+              <div class="band__stat-number">80%</div>
+              <div class="band__stat-label">
+                of productivity apps<br />weren't built for us
+              </div>
+            </div>
+            <div class="band__divider" aria-hidden="true"></div>
+            <div class="band__stat animate-in">
+              <div class="band__stat-number">kynd</div>
+              <div class="band__stat-label">
+                is built differently —<br />from day one
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── Problem section ─── -->
+      <section class="section" id="for-adhd" aria-labelledby="problem-heading">
+        <div class="container">
+          <div class="sh sh--center">
+            <span class="eyebrow">The ADHD experience</span>
+            <h2 id="problem-heading">
+              Productivity apps weren't built for how you think
+            </h2>
+            <p>
+              Most apps assume you can just… start. They don't account for
+              executive dysfunction, time blindness, or the overwhelm that comes
+              with too many choices.
+            </p>
+          </div>
+
+          <div class="problem-grid">
+            <div class="problem-card problem-card--highlight animate-in">
+              <div class="problem-card__icon" aria-hidden="true">😶‍🌫️</div>
+              <h3>Task paralysis</h3>
+              <p>
+                Staring at a 40-item to-do list, completely unable to pick where
+                to start — even when the deadline is real.
+              </p>
+            </div>
+            <div class="problem-card animate-in">
+              <div class="problem-card__icon" aria-hidden="true">⏳</div>
+              <h3>Time blindness</h3>
+              <p>
+                Hours vanish. Every deadline feels like a surprise, even the
+                ones you wrote down.
+              </p>
+            </div>
+            <div class="problem-card animate-in">
+              <div class="problem-card__icon" aria-hidden="true">🌀</div>
+              <h3>Shame spirals</h3>
+              <p>
+                Missing one day breaks the streak, and suddenly you've abandoned
+                the whole system — again.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bridge to solution -->
+          <div style="text-align: center; margin-top: var(--s12)">
+            <p
+              style="
+                font-size: var(--t-xl);
+                font-weight: 700;
+                color: var(--brand);
+                margin-bottom: var(--s5);
+              "
+            >
+              kynd was designed to change all of this.
+            </p>
+            <a href="#features" class="btn btn--brand btn--lg"
+              >See the features →</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <!-- ─── Features ─── -->
+      <section
+        class="section features-section"
+        id="features"
+        aria-labelledby="features-heading"
+      >
+        <div class="container">
+          <div class="sh sh--center">
+            <span class="eyebrow">What's inside</span>
+            <h2 id="features-heading">Everything your brain actually needs</h2>
+            <p>
+              No complexity, no overwhelm. kynd gives you the tools that
+              genuinely work for ADHD minds — flexible, forgiving, and kind.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <!-- Hero feature -->
+            <div class="feature-card feature-card--hero animate-in">
+              <div
+                class="icon-box"
+                style="
+                  background: rgba(255, 255, 255, 0.15);
+                  color: white;
+                  margin-bottom: var(--s5);
+                "
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
+              <h3 style="font-size: var(--t-2xl); margin-bottom: var(--s4)">
+                Focus Mode
+              </h3>
+              <p
+                style="
+                  font-size: var(--t-lg);
+                  opacity: 0.8;
+                  line-height: 1.7;
+                  max-width: 420px;
+                "
+              >
+                One task. Full screen. Everything else gone. When the world is
+                too loud, kynd creates a quiet corner for just the thing that
+                matters right now.
+              </p>
+              <a
+                href="#waitlist"
+                class="btn btn--white"
+                style="margin-top: var(--s6)"
+                >Learn more</a
+              >
+            </div>
+
+            <div class="feature-card animate-in">
+              <div class="icon-box icon-box--amber">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <h3>Energy-Aware Scheduling</h3>
+              <p>
+                Tell kynd how you're feeling. It matches tasks to your energy
+                level — no more forcing deep work when you're running on empty.
+              </p>
+            </div>
+
+            <div class="feature-card animate-in">
+              <div class="icon-box">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 20h9" />
+                  <path
+                    d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                  />
+                </svg>
+              </div>
+              <h3>Smart Task Capture</h3>
+              <p>
+                Voice, text, or photo — capture tasks however your brain is
+                working in that moment. kynd organises them later.
+              </p>
+            </div>
+
+            <div class="feature-card animate-in">
+              <div class="icon-box">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <h3>Body Doubling</h3>
+              <p>
+                Work alongside others in live virtual sessions. The presence of
+                another person — even in silence — can make starting feel
+                possible.
+              </p>
+            </div>
+
+            <div class="feature-card animate-in">
+              <div class="icon-box icon-box--terracotta">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                  />
+                </svg>
+              </div>
+              <h3>Streak-Free Wins</h3>
+              <p>
+                kynd celebrates what you <em>did</em> do — not what you didn't.
+                No punishment for off days. Every win counts, no matter how
+                small.
+              </p>
+            </div>
+
+            <div class="feature-card animate-in">
+              <div class="icon-box">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <h3>Routine Builder</h3>
+              <p>
+                Gentle, flexible routines that adapt when life gets messy.
+                Because it will. And that's okay.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── How it works ─── -->
+      <section class="section" id="how-it-works" aria-labelledby="how-heading">
+        <div class="container">
+          <div class="sh sh--center">
+            <span class="eyebrow">Getting started</span>
+            <h2 id="how-heading">Three steps to a calmer day</h2>
+            <p>
+              Getting started with kynd takes minutes. You don't need a perfect
+              system — you just need a beginning.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step animate-in">
+              <div class="step__number">1</div>
+              <h3>Tell kynd about you</h3>
+              <p>
+                Share how you work best, what your energy patterns look like,
+                and what you're trying to get done. No lengthy questionnaire —
+                just a friendly conversation.
+              </p>
+            </div>
+            <div class="step step--active animate-in">
+              <div class="step__number">2</div>
+              <h3>kynd learns your patterns</h3>
+              <p>
+                Over time, kynd notices when you're at your best, what helps you
+                focus, and where you get stuck — and adapts to you, not the
+                other way round.
+              </p>
+            </div>
+            <div class="step animate-in">
+              <div class="step__number">3</div>
+              <h3>Celebrate every win</h3>
+              <p>
+                kynd gently guides you through your day and celebrates progress
+                — big, small, and everything in between. No streaks to break. No
+                shame.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── ADHD-first design ─── -->
+      <section class="section adhd-section" aria-labelledby="adhd-heading">
+        <div class="container">
+          <div class="sh sh--center">
+            <span class="eyebrow">Designed differently</span>
+            <h2 id="adhd-heading">Built with the ADHD brain in mind</h2>
+            <p>
+              kynd isn't a generic productivity app with an ADHD label stuck on.
+              Every design decision — from the colour palette to the
+              notifications — was made with neurodivergent users at the centre.
+            </p>
+          </div>
+
+          <div class="adhd-pillars">
+            <div class="pillar animate-in">
+              <div class="pillar__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  />
+                </svg>
+              </div>
+              <div class="pillar__text">
+                <h3>No shame, ever</h3>
+                <p>
+                  kynd never uses language that makes you feel bad for being
+                  human. Missed a day? The app starts fresh with you, without
+                  comment.
+                </p>
+              </div>
+            </div>
+
+            <div class="pillar animate-in">
+              <div class="pillar__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+              </div>
+              <div class="pillar__text">
+                <h3>Low-overwhelm design</h3>
+                <p>
+                  Never more than three things asking for your attention at
+                  once. The interface is calm by design — generous white space,
+                  clear hierarchy, no decision fatigue.
+                </p>
+              </div>
+            </div>
+
+            <div class="pillar animate-in">
+              <div class="pillar__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                  <polyline points="17 6 23 6 23 12" />
+                </svg>
+              </div>
+              <div class="pillar__text">
+                <h3>Adapts to real life</h3>
+                <p>
+                  Plans fall apart. That's fine. kynd recalibrates without drama
+                  — sliding tasks forward, adjusting priorities, keeping you
+                  moving.
+                </p>
+              </div>
+            </div>
+
+            <div class="pillar animate-in">
+              <div
+                class="pillar__icon"
+                style="background: var(--amber-lt); color: var(--amber)"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div class="pillar__text">
+                <h3>Research-backed</h3>
+                <p>
+                  kynd is built with guidance from ADHD specialists,
+                  occupational therapists, and — most importantly — people with
+                  ADHD who told us what actually helps.
+                </p>
+              </div>
+            </div>
+
+            <div class="pillar animate-in">
+              <div
+                class="pillar__icon"
+                style="
+                  background: var(--terracotta-lt);
+                  color: var(--terracotta);
+                "
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  />
+                </svg>
+              </div>
+              <div class="pillar__text">
+                <h3>Celebrate small wins</h3>
+                <p>
+                  Getting dressed. Sending one email. Making the call. kynd
+                  recognises that for an ADHD brain, these are real achievements
+                  worth celebrating.
+                </p>
+              </div>
+            </div>
+
+            <div class="pillar animate-in">
+              <div class="pillar__icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                  <line x1="6" y1="1" x2="6" y2="4" />
+                  <line x1="10" y1="1" x2="10" y2="4" />
+                  <line x1="14" y1="1" x2="14" y2="4" />
+                </svg>
+              </div>
+              <div class="pillar__text">
+                <h3>Gentle nudges, not alarms</h3>
+                <p>
+                  Notifications that feel supportive rather than demanding. kynd
+                  checks in, it doesn't bark orders.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── Testimonials (placeholder) ─── -->
+      <section
+        class="section section--sm"
+        aria-labelledby="testimonials-heading"
+      >
+        <div class="container">
+          <div class="sh sh--center">
+            <span class="eyebrow">Early feedback</span>
+            <h2 id="testimonials-heading">What our beta testers are saying</h2>
+          </div>
+
+          <div class="testimonials-grid">
+            <div class="testimonial animate-in">
+              <p class="testimonial__quote">
+                "Finally an app that doesn't make me feel broken for not using
+                it perfectly. kynd just… gets it."
+              </p>
+              <div class="testimonial__author">
+                <div class="testimonial__avatar" aria-hidden="true">A</div>
+                <div>
+                  <div class="testimonial__name">Alex M.</div>
+                  <div class="testimonial__meta">Diagnosed ADHD, age 28</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial animate-in">
+              <p class="testimonial__quote">
+                "The energy check-in at the start of every day has genuinely
+                changed how I plan. I stop trying to force productivity when I'm
+                depleted."
+              </p>
+              <div class="testimonial__author">
+                <div
+                  class="testimonial__avatar"
+                  style="background: var(--amber-lt); color: var(--amber)"
+                  aria-hidden="true"
+                >
+                  S
+                </div>
+                <div>
+                  <div class="testimonial__name">Sam T.</div>
+                  <div class="testimonial__meta">ADHD + anxiety, age 34</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial animate-in">
+              <p class="testimonial__quote">
+                "Body doubling sessions have been a game changer. I got more
+                done in one session than I had all week. The shame-free wins
+                thing is so real."
+              </p>
+              <div class="testimonial__author">
+                <div
+                  class="testimonial__avatar"
+                  style="
+                    background: var(--terracotta-lt);
+                    color: var(--terracotta);
+                  "
+                  aria-hidden="true"
+                >
+                  J
+                </div>
+                <div>
+                  <div class="testimonial__name">Jordan K.</div>
+                  <div class="testimonial__meta">
+                    Late-diagnosed ADHD, age 41
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p
+            style="
+              text-align: center;
+              margin-top: var(--s8);
+              font-size: var(--t-sm);
+              color: var(--text-dim);
+              font-style: italic;
+            "
+          >
+            Names changed. Testimonials from closed beta testers.
+          </p>
+        </div>
+      </section>
+
+      <!-- ─── Waitlist CTA ─── -->
+      <section
+        class="waitlist-section section"
+        id="waitlist"
+        aria-labelledby="waitlist-heading"
+      >
+        <div class="container">
+          <div class="waitlist-inner">
+            <span class="eyebrow eyebrow--white">Early access</span>
+            <h2 id="waitlist-heading">Be first to know when kynd launches</h2>
+            <p>
+              Join the waitlist and get early access, launch pricing, and
+              updates as we build. No spam — just progress.
+            </p>
+
+            <form
+              class="waitlist-form"
+              action="#"
+              onsubmit="handleWaitlist(event)"
+            >
+              <label for="waitlist-email" class="visually-hidden"
+                >Email address</label
+              >
+              <input
+                class="input"
+                type="email"
+                id="waitlist-email"
+                name="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+                required
+              />
+              <button type="submit" class="btn btn--primary btn--lg">
+                Join waitlist
+              </button>
+            </form>
+
+            <div
+              id="waitlist-success"
+              style="
+                display: none;
+                color: white;
+                font-weight: 700;
+                font-size: var(--t-lg);
+                padding: var(--s4);
+              "
+            >
+              ✓ You're on the list! We'll be in touch.
+            </div>
+
+            <div class="waitlist-social">
+              <span class="waitlist-social-num">2,400+</span>
+              <span>people already on the waitlist</span>
+              <div class="waitlist-dot" aria-hidden="true"></div>
+              <span>No credit card needed</span>
+            </div>
+
+            <div class="appstore-badges" aria-label="Coming to app stores">
+              <div class="store-badge">
+                <svg
+                  class="store-badge__icon"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2c.7 0 1.4.1 2 .3M12 22c-5.5 0-10-4.5-10-10S6.5 2 12 2"
+                  />
+                  <path d="M12 22c1.7 0 3.2-.4 4.6-1.1M17 9l-5 5-5-5" />
+                  <path d="M12 3v10" />
+                </svg>
+                <div>
+                  <div class="store-badge__label">Download on the</div>
+                  <div class="store-badge__name">App Store</div>
+                </div>
+              </div>
+              <div class="store-badge">
+                <svg
+                  class="store-badge__icon"
+                  width="28"
+                  height="28"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                <div>
+                  <div class="store-badge__label">Get it on</div>
+                  <div class="store-badge__name">Google Play</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ─── Footer ─── -->
+    <footer class="site-footer" aria-label="Site footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="logomark.png" alt="kynd" />
+            </div>
+            <p class="footer-tagline">
+              A life management app designed for the ADHD mind — kind, flexible,
+              and genuinely helpful.
+            </p>
+          </div>
+
+          <nav class="footer-cols" aria-label="Footer navigation">
+            <div class="footer-col">
+              <h4>Product</h4>
+              <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#for-adhd">For ADHD</a></li>
+                <li><a href="#waitlist">Early access</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Connect</h4>
+              <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Newsletter</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 kynd. All rights reserved.</p>
+          <nav class="footer-legal" aria-label="Legal navigation">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ─── Scripts ─── -->
+    <script>
+      // Hamburger menu toggle
+      const hamburger = document.getElementById("hamburger");
+      const drawer = document.getElementById("nav-drawer");
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = drawer.classList.toggle("is-open");
+        hamburger.classList.toggle("open", isOpen);
+        hamburger.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      // Close drawer when a link is clicked
+      drawer.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          drawer.classList.remove("is-open");
+          hamburger.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      // Show nav CTA after scrolling past hero
+      const navCta = document.getElementById("nav-cta");
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          navCta.style.display = entry.isIntersecting ? "none" : "inline-flex";
+        },
+        { threshold: 0.1 },
+      );
+      observer.observe(document.getElementById("home"));
+
+      // Waitlist form feedback (non-functional)
+      function handleWaitlist(e) {
+        e.preventDefault();
+        document.querySelector(".waitlist-form").style.display = "none";
+        document.getElementById("waitlist-success").style.display = "block";
+      }
+
+      // Animate sections on scroll
+      const animateEls = document.querySelectorAll(".animate-in");
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = "running";
+              io.unobserve(entry.target);
+            }
+          }),
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+      );
+      animateEls.forEach((el) => {
+        el.style.animationPlayState = "paused";
+        io.observe(el);
+      });
+    </script>
+  </body>
 </html>
