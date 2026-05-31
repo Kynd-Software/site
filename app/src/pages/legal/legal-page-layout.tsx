@@ -30,8 +30,8 @@ export const LegalPageLayout = ({
           <Link href="/" className={`${styles.actionLink} ${styles.actionSecondary}`}>
             Back to home
           </Link>
-          <Link href="/#waitlist" className={`${styles.actionLink} ${styles.actionPrimary}`}>
-            Join the waitlist
+          <Link href="/#community" className={`${styles.actionLink} ${styles.actionPrimary}`}>
+            Join the community
           </Link>
         </div>
       </div>

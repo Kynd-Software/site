@@ -12,7 +12,7 @@ export const homeSectionLinks: HomeSectionLink[] = [
   { id: 'for-adhd', label: 'For ADHD' },
   { id: 'features', label: 'Features' },
   { id: 'how-it-works', label: 'How it works' },
-  { id: 'waitlist', label: 'Early access' },
+  { id: 'community', label: 'Community' },
 ];
 
 export const legalLinks: LegalLink[] = [
