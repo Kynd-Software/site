@@ -1,23 +1,32 @@
 import { useState, useEffect, useRef } from 'react';
+import type { MouseEvent } from 'react';
+import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui';
 import logomark from '@/assets/images/logomark.png';
+import { homeSectionLinks } from '@/lib/site-navigation';
+import { useHomeSectionNavigation } from '@/hooks/use-home-section-navigation';
 import styles from './Nav.module.css';
-
-const navLinks = [
-  { href: '#for-adhd', label: 'For ADHD' },
-  { href: '#features', label: 'Features' },
-  { href: '#how-it-works', label: 'How it works' },
-  { href: '#waitlist', label: 'Early access' },
-];
 
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [ctaVisible, setCtaVisible] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [location, navigate] = useLocation();
+  const { navigateToSection } = useHomeSectionNavigation();
 
   useEffect(() => {
+    observerRef.current?.disconnect();
+
+    if (location !== '/') {
+      setCtaVisible(false);
+      return;
+    }
+
     const hero = document.getElementById('home');
-    if (!hero) return;
+    if (!hero) {
+      setCtaVisible(false);
+      return;
+    }
 
     observerRef.current = new IntersectionObserver(
       ([entry]) => {
@@ -28,18 +37,42 @@ export function Nav() {
     observerRef.current.observe(hero);
 
     return () => observerRef.current?.disconnect();
-  }, []);
+  }, [location]);
+
+  const handleSectionClick = (sectionId: string) => (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setMenuOpen(false);
+    navigateToSection(sectionId);
+  };
+
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setMenuOpen(false);
+
+    if (location === '/') {
+      window.history.pushState({}, '', '/');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      return;
+    }
+
+    navigate('/');
+  };
 
   return (
     <header className={styles.header} role="banner">
       <div className={styles.inner}>
-        <a href="#" className={styles.logo} aria-label="kynd — go to top">
+        <Link href="/" className={styles.logo} aria-label="kynd — go to top" onClick={handleLogoClick}>
           <img src={logomark} alt="kynd" className={styles.logoImg} />
-        </a>
+        </Link>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`} aria-label="Main navigation">
-          {navLinks.map(({ href, label }) => (
-            <a key={href} href={href} className={styles.navLink} onClick={() => setMenuOpen(false)}>
+          {homeSectionLinks.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`/#${id}`}
+              className={styles.navLink}
+              onClick={handleSectionClick(id)}
+            >
               {label}
             </a>
           ))}
@@ -47,7 +80,7 @@ export function Nav() {
 
         <div className={styles.actions}>
           {ctaVisible && (
-            <Button variant="primary" size="sm" onClick={() => (window.location.href = '#waitlist')}>
+            <Button variant="primary" size="sm" onClick={() => navigateToSection('waitlist')}>
               Join waitlist
             </Button>
           )}

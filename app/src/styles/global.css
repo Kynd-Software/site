@@ -11,7 +11,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+  scroll-padding-top: 7rem;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -105,6 +106,12 @@ strong {
 
 .section--sm {
   padding-block: var(--s16);
+}
+
+section[id],
+[id='main-content'],
+article[id] {
+  scroll-margin-top: 7rem;
 }
 
 /* Horizontal divider */

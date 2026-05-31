@@ -1,6 +1,11 @@
+import { Link } from 'wouter';
+import { homeSectionLinks, legalLinks } from '@/lib/site-navigation';
+import { useHomeSectionNavigation } from '@/hooks/use-home-section-navigation';
 import styles from './Footer.module.css';
 
 export function Footer() {
+  const { navigateToSection } = useHomeSectionNavigation();
+
   return (
     <footer className={styles.footer} aria-label="Site footer">
       <div className="container">
@@ -18,10 +23,19 @@ export function Footer() {
             <div className={styles.footerCol}>
               <h4>Product</h4>
               <ul>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How it works</a></li>
-                <li><a href="#for-adhd">For ADHD</a></li>
-                <li><a href="#waitlist">Early access</a></li>
+                {homeSectionLinks.map(({ id, label }) => (
+                  <li key={id}>
+                    <a
+                      href={`/#${id}`}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        navigateToSection(id);
+                      }}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
             <div className={styles.footerCol}>
@@ -42,16 +56,21 @@ export function Footer() {
                 <li><a href="#">Newsletter</a></li>
               </ul>
             </div>
+            <div className={styles.footerCol}>
+              <h4>Legal</h4>
+              <ul>
+                {legalLinks.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link href={href}>{label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         </div>
 
         <div className={styles.footerBottom}>
           <p className={styles.footerCopy}>© 2026 kynd. All rights reserved.</p>
-          <nav className={styles.footerLegal} aria-label="Legal navigation">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
-            <a href="#">Accessibility</a>
-          </nav>
         </div>
       </div>
     </footer>

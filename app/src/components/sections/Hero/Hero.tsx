@@ -1,7 +1,10 @@
 import { Button } from '@/components/ui';
+import { useHomeSectionNavigation } from '@/hooks/use-home-section-navigation';
 import styles from './Hero.module.css';
 
 export function Hero() {
+  const { navigateToSection } = useHomeSectionNavigation();
+
   return (
     <section className={styles.hero} id="home" aria-labelledby="hero-heading">
       <div className={`${styles.blob} ${styles.blob1}`} aria-hidden="true" />
@@ -30,7 +33,7 @@ export function Hero() {
           </div>
 
           <div className={styles.actions}>
-            <Button variant="secondary" size="lg" onClick={() => (window.location.href = '#how-it-works')}>
+            <Button variant="secondary" size="lg" onClick={() => navigateToSection('how-it-works')}>
               See how it works
             </Button>
           </div>
