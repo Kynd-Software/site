@@ -18,8 +18,10 @@
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
     "react": "^19.2.6",
+    "react-cookie-consent": "^10.0.1",
     "react-dom": "^19.2.6",
-    "react-hook-form": "^7.76.1"
+    "react-hook-form": "^7.76.1",
+    "wouter": "^3.10.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

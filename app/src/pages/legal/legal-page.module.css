@@ -1,0 +1,138 @@
+.page {
+  padding-block: var(--s16) var(--s24);
+}
+
+.hero {
+  padding: var(--s12);
+  background:
+    radial-gradient(circle at top right, rgba(123, 160, 106, 0.22), transparent 40%),
+    linear-gradient(180deg, var(--brand-xpale), rgba(255, 255, 255, 0.9));
+  border: 1px solid rgba(61, 92, 52, 0.12);
+  border-radius: var(--r-2xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--s12);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: var(--t-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: var(--s4);
+}
+
+.title {
+  font-size: var(--t-4xl);
+  margin-bottom: var(--s4);
+}
+
+.summary {
+  max-width: 42rem;
+  font-size: var(--t-lg);
+  color: var(--text-body);
+}
+
+.meta {
+  margin-top: var(--s6);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.content {
+  display: grid;
+  gap: var(--s6);
+}
+
+.section {
+  padding: var(--s8);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(61, 92, 52, 0.1);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-xs);
+}
+
+.section h2 {
+  font-size: var(--t-2xl);
+  margin-bottom: var(--s4);
+}
+
+.section h3 {
+  font-size: var(--t-xl);
+  margin: var(--s5) 0 var(--s3);
+}
+
+.section p,
+.section li {
+  color: var(--text-body);
+}
+
+.section ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.section ul + p,
+.section p + ul,
+.section p + p {
+  margin-top: var(--s4);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+  margin-top: var(--s10);
+}
+
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 var(--s6);
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.actionLink:focus-visible {
+  outline: 3px solid var(--brand-light);
+  outline-offset: 3px;
+}
+
+.actionPrimary {
+  background: var(--brand);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.actionPrimary:hover {
+  background: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.actionSecondary {
+  border: 2px solid var(--brand);
+  color: var(--brand);
+}
+
+.actionSecondary:hover {
+  background: var(--brand-pale);
+  transform: translateY(-1px);
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding: var(--s16);
+  }
+}
