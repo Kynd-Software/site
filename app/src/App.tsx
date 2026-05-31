@@ -19,16 +19,24 @@ const scrollToHashTarget = (): void => {
   window.requestAnimationFrame(() => {
     const target = document.getElementById(targetId);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
   });
+};
+
+const scrollToPageTop = (): void => {
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 };
 
 export default function App() {
   const [location] = useLocation();
 
   useEffect(() => {
-    scrollToHashTarget();
+    if (window.location.pathname === '/' && window.location.hash) {
+      scrollToHashTarget();
+    } else {
+      scrollToPageTop();
+    }
 
     const handleHashChange = (): void => {
       scrollToHashTarget();

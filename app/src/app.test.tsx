@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { clearCookie, consentCookie } from '@/lib/consent-cookie';
 
 const renderAtPath = (path: string) => {
   window.history.pushState({}, '', path);
@@ -11,6 +12,7 @@ describe('App routing', () => {
   beforeEach(() => {
     vi.restoreAllMocks();
     window.history.pushState({}, '', '/');
+    clearCookie(consentCookie.name);
   });
 
   it('renders the marketing homepage by default', () => {
@@ -32,6 +34,14 @@ describe('App routing', () => {
     expect(screen.getByText(/what we collect/i)).toBeInTheDocument();
   });
 
+  it('scrolls to the top when rendering a legal route', () => {
+    const scrollToSpy = vi.spyOn(window, 'scrollTo');
+
+    renderAtPath('/privacy-policy');
+
+    expect(scrollToSpy).toHaveBeenCalledWith({ top: 0, left: 0, behavior: 'auto' });
+  });
+
   it('renders the cookie policy route and consent controls accessibly', () => {
     renderAtPath('/cookie-policy');
 
@@ -40,6 +50,14 @@ describe('App routing', () => {
     expect(
       screen.getByRole('button', { name: /decline non-essential cookies/i }),
     ).toBeInTheDocument();
+  });
+
+  it('hides the consent banner once a choice has already been stored', () => {
+    document.cookie = `${consentCookie.name}=${consentCookie.acceptValue}; Path=/; SameSite=Lax`;
+
+    renderAtPath('/');
+
+    expect(screen.queryByRole('region', { name: /cookie consent/i })).not.toBeInTheDocument();
   });
 
   it('renders the terms and conditions route', () => {

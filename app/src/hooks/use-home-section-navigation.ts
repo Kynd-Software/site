@@ -14,7 +14,7 @@ export const useHomeSectionNavigation = (): UseHomeSectionNavigationResult => {
 
   const navigateToSection = (
     sectionId: string,
-    { behavior = 'smooth' }: NavigateToSectionOptions = {},
+    { behavior = 'auto' }: NavigateToSectionOptions = {},
   ): void => {
     const nextHref = getSectionHref(sectionId);
 
