@@ -56,18 +56,21 @@ export function Footer() {
                 <li><a href="#">Newsletter</a></li>
               </ul>
             </div>
+            <div className={styles.footerCol}>
+              <h4>Legal</h4>
+              <ul>
+                {legalLinks.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link href={href}>{label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         </div>
 
         <div className={styles.footerBottom}>
           <p className={styles.footerCopy}>© 2026 kynd. All rights reserved.</p>
-          <nav className={styles.footerLegal} aria-label="Legal navigation">
-            {legalLinks.map(({ href, label }) => (
-              <Link key={href} href={href}>
-                {label}
-              </Link>
-            ))}
-          </nav>
         </div>
       </div>
     </footer>

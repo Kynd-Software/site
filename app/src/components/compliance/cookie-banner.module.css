@@ -1,28 +1,24 @@
-.overlay {
-  background: rgba(25, 40, 23, 0.32);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
 .banner {
-  left: var(--s4) !important;
-  right: var(--s4) !important;
-  bottom: var(--s4) !important;
-  width: auto !important;
+  position: fixed;
+  left: var(--s4);
+  right: var(--s4);
+  bottom: var(--s4);
+  z-index: 120;
+  width: auto;
   max-width: 1100px;
-  margin: 0 auto !important;
-  padding: var(--s6) !important;
+  margin: 0 auto;
+  padding: var(--s6);
   background:
     radial-gradient(circle at top right, rgba(242, 196, 160, 0.28), transparent 38%),
-    rgba(25, 40, 23, 0.96) !important;
+    rgba(25, 40, 23, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--r-xl);
   box-shadow: var(--shadow-xl);
 }
 
 .content {
-  flex: 1 1 20rem !important;
-  margin: 0 !important;
+  flex: 1 1 20rem;
+  margin: 0;
   font-size: var(--t-sm);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.82);
@@ -49,16 +45,18 @@
   flex-wrap: wrap;
   gap: var(--s3);
   align-items: center;
+  margin-top: var(--s4);
 }
 
 .acceptButton,
 .declineButton {
   min-height: 44px;
-  padding: 0 var(--s5) !important;
+  padding: 0 var(--s5);
   border-radius: var(--r-pill);
   font-family: var(--font);
   font-size: var(--t-sm);
   font-weight: 800;
+  cursor: pointer;
   transition:
     transform var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease),
@@ -67,28 +65,28 @@
 }
 
 .acceptButton {
-  background: var(--terracotta) !important;
-  color: var(--white) !important;
-  border: 2px solid var(--terracotta) !important;
+  background: var(--terracotta);
+  color: var(--white);
+  border: 2px solid var(--terracotta);
   box-shadow: 0 4px 16px rgba(196, 103, 63, 0.28);
 }
 
 .acceptButton:hover {
-  background: var(--terracotta-dk) !important;
-  border-color: var(--terracotta-dk) !important;
+  background: var(--terracotta-dk);
+  border-color: var(--terracotta-dk);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(196, 103, 63, 0.32);
 }
 
 .declineButton {
-  background: transparent !important;
-  color: var(--white) !important;
-  border: 2px solid rgba(255, 255, 255, 0.34) !important;
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.34);
 }
 
 .declineButton:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: rgba(255, 255, 255, 0.68) !important;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.68);
 }
 
 .acceptButton:focus-visible,
@@ -100,9 +98,13 @@
 
 @media (min-width: 900px) {
   .banner {
-    display: flex !important;
+    display: flex;
     align-items: center;
     gap: var(--s6);
-    padding: var(--s6) var(--s8) !important;
+    padding: var(--s6) var(--s8);
+  }
+
+  .buttonWrap {
+    margin-top: 0;
   }
 }

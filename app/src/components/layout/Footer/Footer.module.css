@@ -17,7 +17,7 @@
     grid-template-columns: 280px 1fr;
   }
   .footerCols {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -83,28 +83,11 @@
   flex-wrap: wrap;
   gap: var(--s4);
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .footerCopy {
   font-size: var(--t-xs);
   color: rgba(255, 255, 255, 0.3);
   font-weight: 600;
-}
-
-.footerLegal {
-  display: flex;
-  gap: var(--s5);
-}
-
-.footerLegal a {
-  font-size: var(--t-xs);
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.3);
-  text-decoration: none;
-  transition: color var(--dur);
-}
-
-.footerLegal a:hover {
-  color: rgba(255, 255, 255, 0.7);
 }
