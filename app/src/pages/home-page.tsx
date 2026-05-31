@@ -4,8 +4,7 @@ import { ProblemSection } from '@/components/sections/ProblemSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { AdhdPillars } from '@/components/sections/AdhdPillars';
-import { Testimonials } from '@/components/sections/Testimonials';
-import { WaitlistCta } from '@/components/sections/WaitlistCta';
+import { CommunityCta } from '@/components/sections/CommunityCta';
 
 export const HomePage = () => {
   return (
@@ -17,8 +16,7 @@ export const HomePage = () => {
       <FeaturesSection />
       <HowItWorks />
       <AdhdPillars />
-      <Testimonials />
-      <WaitlistCta />
+      <CommunityCta />
     </>
   );
 };

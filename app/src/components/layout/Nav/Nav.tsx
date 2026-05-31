@@ -80,8 +80,8 @@ export function Nav() {
 
         <div className={styles.actions}>
           {ctaVisible && (
-            <Button variant="primary" size="sm" onClick={() => navigateToSection('waitlist')}>
-              Join waitlist
+            <Button variant="primary" size="sm" onClick={() => navigateToSection('community')}>
+              Join community
             </Button>
           )}
           <button
