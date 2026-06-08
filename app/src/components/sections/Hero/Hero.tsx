@@ -26,7 +26,7 @@ export function Hero() {
             </p>
             <p>
               There's a whole universe of apps to make you into a productivity machine or a learning
-              superhero. We want to make apps that are <strong>more human</strong> — for people who
+              superhero. We want to make apps that are <strong>more human</strong> and for people who
               find life hard to manage, a little more manageable.
             </p>
             <p className={styles.subBrand}>This is kynd.</p>

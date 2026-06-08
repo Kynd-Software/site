@@ -67,7 +67,7 @@ export function FeaturesSection() {
       <SectionHeader
         eyebrow="What's inside"
         heading="Everything your brain actually needs"
-        lead="No complexity, no overwhelm. kynd gives you the tools that genuinely work for ADHD minds — flexible, forgiving, and kind."
+        lead="kynd gives you the tools that genuinely work for ADHD minds in a way that's flexible, forgiving, and supportive without being overwhelming."
         centred
         headingId="features-heading"
       />

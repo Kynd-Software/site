@@ -28,6 +28,14 @@ describe('App routing', () => {
       'href',
       '/privacy-policy',
     );
+    expect(
+      screen.getByRole('link', {
+        name: /nhs digital — survey of mental health and wellbeing, england 2023-24/i,
+      }),
+    ).toHaveAttribute(
+      'href',
+      'https://digital.nhs.uk/data-and-information/publications/statistical/adult-psychiatric-morbidity-survey/survey-of-mental-health-and-wellbeing-england-2023-24/attention-deficit-hyperactivity-disorder',
+    );
   });
 
   it('renders the privacy policy route', () => {
@@ -35,6 +43,18 @@ describe('App routing', () => {
 
     expect(screen.getByRole('heading', { level: 1, name: /privacy policy/i })).toBeInTheDocument();
     expect(screen.getByText(/what we collect/i)).toBeInTheDocument();
+  });
+
+  it('renders the about route', () => {
+    renderAtPath('/about');
+
+    expect(screen.getByRole('heading', { level: 1, name: /this is kynd/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: /graham/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: /david/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /visit the facebook group/i })).toHaveAttribute(
+      'href',
+      'https://www.facebook.com/groups/kyndsoft/',
+    );
   });
 
   it('scrolls to the top when rendering a legal route', () => {

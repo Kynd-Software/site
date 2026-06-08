@@ -91,3 +91,19 @@
   color: rgba(255, 255, 255, 0.3);
   font-weight: 600;
 }
+
+.footerCitation {
+  font-size: var(--t-xs);
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.6;
+}
+
+.footerCitation a {
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.footerCitation a:hover {
+  color: var(--white);
+}

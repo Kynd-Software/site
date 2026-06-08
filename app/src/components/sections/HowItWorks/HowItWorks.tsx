@@ -23,7 +23,7 @@ export function HowItWorks() {
       <SectionHeader
         eyebrow="Getting started"
         heading="Three steps to a calmer day"
-        lead="Getting started with kynd takes minutes. You don’t need a perfect system — you just need a beginning."
+        lead="Getting started with kynd takes minutes. It doesn't need to be perfectly planned from the start - kynd will adapt and restructure as you add new information, or your needs change."
         centred
         headingId="how-it-works-heading"
       />

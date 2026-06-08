@@ -41,7 +41,7 @@ export function Footer() {
             <div className={styles.footerCol}>
               <h4>Company</h4>
               <ul>
-                <li><a href="#">About</a></li>
+                <li><Link href="/about">About</Link></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Research</a></li>
                 <li><a href="#">Contact</a></li>
@@ -52,7 +52,7 @@ export function Footer() {
               <ul>
                 <li><a href="#">Instagram</a></li>
                 <li><a href="#">TikTok</a></li>
-                <li><a href="#">Community</a></li>
+                <li><a href="https://www.facebook.com/groups/kyndsoft/" target="_blank" rel="noreferrer">Community</a></li>
                 <li><a href="#">Newsletter</a></li>
               </ul>
             </div>
@@ -71,6 +71,16 @@ export function Footer() {
 
         <div className={styles.footerBottom}>
           <p className={styles.footerCopy}>© 2026 kynd. All rights reserved.</p>
+          <p className={styles.footerCitation}>
+            ADHD prevalence source:{' '}
+            <a
+              href="https://digital.nhs.uk/data-and-information/publications/statistical/adult-psychiatric-morbidity-survey/survey-of-mental-health-and-wellbeing-england-2023-24/attention-deficit-hyperactivity-disorder"
+              target="_blank"
+              rel="noreferrer"
+            >
+              NHS Digital — Survey of Mental Health and Wellbeing, England 2023-24
+            </a>
+          </p>
         </div>
       </div>
     </footer>
