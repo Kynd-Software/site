@@ -5,6 +5,7 @@ import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/compliance/cookie-banner';
 import { HomePage } from '@/pages/home-page';
+import { AboutPage } from '@/pages/about-page';
 import { PrivacyPolicyPage } from '@/pages/legal/privacy-policy-page';
 import { CookiePolicyPage } from '@/pages/legal/cookie-policy-page';
 import { TermsAndConditionsPage } from '@/pages/legal/terms-and-conditions-page';
@@ -55,6 +56,7 @@ export default function App() {
       <main id="main-content">
         <Switch>
           <Route path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
           <Route path="/privacy-policy" component={PrivacyPolicyPage} />
           <Route path="/cookie-policy" component={CookiePolicyPage} />
           <Route path="/terms-and-conditions" component={TermsAndConditionsPage} />

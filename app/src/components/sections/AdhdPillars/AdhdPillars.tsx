@@ -57,7 +57,7 @@ export function AdhdPillars() {
       <SectionHeader
         eyebrow="Designed differently"
         heading="Built with the ADHD brain in mind"
-        lead="kynd isn’t a generic productivity app with an ADHD label stuck on. Every design decision — from the colour palette to the notifications — was made with neurodivergent users at the centre."
+        lead="kynd isn’t a generic productivity app with an ADHD label stuck on. The entire experience has been built on ADHD lived experience, in collaboration with our amazing community."
         centred
         headingId="pillars-heading"
       />

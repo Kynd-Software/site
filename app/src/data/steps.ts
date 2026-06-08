@@ -10,7 +10,7 @@ export const steps: Step[] = [
     number: 1,
     title: "Tell kynd what's going on",
     description:
-      "Dump everything on your mind — tasks, worries, half-formed ideas. The AI assistant helps sort the noise into something you can actually work with. No judgement, no structure required.",
+      "Designed to make sense of unstructured brain dumps, kynd helps make sense of it all and builds a coherent and easy to follow plan for your day or week ahead.",
   },
   {
     number: 2,
@@ -21,8 +21,8 @@ export const steps: Step[] = [
   },
   {
     number: 3,
-    title: 'Build momentum, not pressure',
+    title: 'Progress without pressure',
     description:
-      "Every completed step is a win. kynd celebrates your progress, helps you recover when things go sideways, and keeps showing up — even on the days you forgot it existed.",
-  },
+      "Whether you use kynd every day, or don't touch it for three weeks, the app can pick up where you left off without any pressure or guilt. The app's goal is to help you keep moving forward, adapting as required.",
+  }
 ];

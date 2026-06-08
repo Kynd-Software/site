@@ -23,10 +23,11 @@ export function ProblemSection() {
       <SectionHeader
         eyebrow="The ADHD experience"
         heading="Productivity apps weren't built for how you think"
-        lead="Most apps assume you can just… start. They ignore the real challenges that come with ADHD — the paralysis, the anxiety, the forgetting you even installed them."
         centred
         headingId="problems-heading"
-      />
+      >
+        Most apps assume you can just <em>start</em>. They ignore the real challenges that come with ADHD: the paralysis, the anxiety, the forgetting you even installed them.
+      </SectionHeader>
 
       <motion.div
         ref={ref as React.RefObject<HTMLDivElement>}
