@@ -88,7 +88,35 @@ export function FeaturesSection() {
             <p className={styles.heroDesc}>{heroFeature.description}</p>
           </div>
           <div className={styles.heroDecor} aria-hidden="true">
-            <div className={styles.decorBox}>🧠</div>
+            <div className={styles.decorCluster}>
+              <div className={`${styles.decorShape} ${styles.decorShapeLarge}`} />
+              <div className={`${styles.decorShape} ${styles.decorShapeMedium}`} />
+              <div className={`${styles.decorShape} ${styles.decorShapeSmall}`} />
+              <div className={`${styles.decorShape} ${styles.decorShapeTall}`} />
+              <div className={`${styles.decorShape} ${styles.decorShapeWide}`} />
+
+              <div className={styles.decorCard}>
+                <div className={styles.decorTask}>
+                  <span className={styles.decorDot} />
+                  <span className={`${styles.decorTaskLine} ${styles.decorTaskLineLong}`} />
+                </div>
+                <div className={styles.decorTask}>
+                  <span className={styles.decorDot} />
+                  <span className={`${styles.decorTaskLine} ${styles.decorTaskLineMedium}`} />
+                </div>
+                <div className={styles.decorTask}>
+                  <span className={styles.decorDot} />
+                  <span className={`${styles.decorTaskLine} ${styles.decorTaskLineShort}`} />
+                </div>
+                <div className={styles.decorTask}>
+                  <span className={styles.decorDotMuted} />
+                  <span className={`${styles.decorTaskLine} ${styles.decorTaskLineMedium}`} />
+                </div>
+              </div>
+
+              <div className={`${styles.decorBlob} ${styles.decorBlobLower}`} />
+              <div className={`${styles.decorBlob} ${styles.decorBlobRight}`} />
+            </div>
           </div>
         </motion.div>
       )}

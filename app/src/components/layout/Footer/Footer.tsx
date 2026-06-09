@@ -15,7 +15,7 @@ export function Footer() {
               <img src="/logomark.png" alt="kynd" />
             </div>
             <p className={styles.footerTagline}>
-              A life management app designed for the ADHD mind — kind, flexible, and genuinely helpful.
+              A life management app designed for the ADHD mind. Kind, flexible, and genuinely helpful.
             </p>
           </div>
 
@@ -42,18 +42,18 @@ export function Footer() {
               <h4>Company</h4>
               <ul>
                 <li><Link href="/about">About</Link></li>
-                <li><a href="#">Blog</a></li>
+                {/* <li><a href="#">Blog</a></li>
                 <li><a href="#">Research</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Contact</a></li> */}
               </ul>
             </div>
             <div className={styles.footerCol}>
               <h4>Connect</h4>
               <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">TikTok</a></li>
-                <li><a href="https://www.facebook.com/groups/kyndsoft/" target="_blank" rel="noreferrer">Community</a></li>
-                <li><a href="#">Newsletter</a></li>
+                <li><a href="https://www.instagram.com/kyndsoft/">Instagram</a></li>
+                {/* <li><a href="#">TikTok</a></li> */}
+                <li><a href="https://www.facebook.com/groups/kyndsoft/" target="_blank" rel="noreferrer">Facebook</a></li>
+                {/* <li><a href="#">Newsletter</a></li> */}
               </ul>
             </div>
             <div className={styles.footerCol}>

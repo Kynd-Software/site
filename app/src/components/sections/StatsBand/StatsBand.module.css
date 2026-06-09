@@ -28,7 +28,7 @@
 
   .divider {
     display: block;
-    height: 48px;
+    height: 96px;
   }
 }
 
@@ -37,16 +37,17 @@
 }
 
 .value {
-  font-size: var(--t-4xl);
-  font-weight: 900;
+  font-family: var(--font-heading);
+  font-size: calc(var(--t-4xl) * 1.5);
+  font-weight: 600;
   letter-spacing: -0.03em;
   color: var(--white);
   line-height: 1;
-  margin-bottom: var(--s2);
+  margin-bottom: var(--s1);
 }
 
 .label {
-  font-size: var(--t-sm);
+  font-size: calc(var(--t-sm) * 1.3);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.5;
