@@ -38,7 +38,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className={styles.trust}>
+          {/* <div className={styles.trust}>
             <div className={styles.trustAvatars} aria-hidden="true">
               <div className={`${styles.trustAvatar} ${styles.trustAvatar1}`}>A</div>
               <div className={`${styles.trustAvatar} ${styles.trustAvatar2}`}>S</div>
@@ -47,7 +47,7 @@ export function Hero() {
             <span>
               Join <strong>2,400+</strong> people already waiting
             </span>
-          </div>
+          </div> */}
         </div>
 
         {/* Phone illustration */}
