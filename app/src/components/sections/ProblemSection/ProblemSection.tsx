@@ -92,7 +92,7 @@ export function ProblemSection() {
       <div className="container">
       <SectionHeader
         eyebrow="The ADHD experience"
-        heading="Most productivity apps weren't built for how you think"
+        heading="Most life management apps weren't built for how you think"
         centred
         headingId="problems-heading"
       >

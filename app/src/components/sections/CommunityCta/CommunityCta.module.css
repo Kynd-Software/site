@@ -1,6 +1,6 @@
 .section {
   background: var(--brand-dark);
-  padding-block: var(--s20);
+  padding-block: var(--s24);
   position: relative;
   overflow: hidden;
 }

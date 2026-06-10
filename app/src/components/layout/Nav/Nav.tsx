@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import type { MouseEvent } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui';
@@ -9,35 +9,9 @@ import styles from './Nav.module.css';
 
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [ctaVisible, setCtaVisible] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
   const [location, navigate] = useLocation();
   const { navigateToSection } = useHomeSectionNavigation();
-
-  useEffect(() => {
-    observerRef.current?.disconnect();
-
-    if (location !== '/') {
-      setCtaVisible(false);
-      return;
-    }
-
-    const hero = document.getElementById('home');
-    if (!hero) {
-      setCtaVisible(false);
-      return;
-    }
-
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => {
-        setCtaVisible(!entry.isIntersecting);
-      },
-      { threshold: 0.1 },
-    );
-    observerRef.current.observe(hero);
-
-    return () => observerRef.current?.disconnect();
-  }, [location]);
+  const sectionLinks = homeSectionLinks.filter(({ id }) => id !== 'community');
 
   const handleSectionClick = (sectionId: string) => (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -66,7 +40,7 @@ export function Nav() {
         </Link>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`} aria-label="Main navigation">
-          {homeSectionLinks.map(({ id, label }) => (
+          {sectionLinks.map(({ id, label }) => (
             <a
               key={id}
               href={`/#${id}`}
@@ -76,14 +50,15 @@ export function Nav() {
               {label}
             </a>
           ))}
+          <Link href="/about" className={styles.navLink} onClick={() => setMenuOpen(false)}>
+            About
+          </Link>
         </nav>
 
         <div className={styles.actions}>
-          {ctaVisible && (
-            <Button variant="primary" size="sm" onClick={() => navigateToSection('community')}>
-              Join community
-            </Button>
-          )}
+          <Button variant="primary" size="sm" onClick={() => navigateToSection('community')}>
+            Join community
+          </Button>
           <button
             className={styles.menuToggle}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}

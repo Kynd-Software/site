@@ -4,6 +4,7 @@ import { useLocation } from 'wouter';
 import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/compliance/cookie-banner';
+import { scrollToSection } from '@/lib/scroll-to-section';
 import { HomePage } from '@/pages/home-page';
 import { AboutPage } from '@/pages/about-page';
 import { PrivacyPolicyPage } from '@/pages/legal/privacy-policy-page';
@@ -20,7 +21,7 @@ const scrollToHashTarget = (): void => {
   window.requestAnimationFrame(() => {
     const target = document.getElementById(targetId);
     if (target) {
-      target.scrollIntoView({ behavior: 'auto', block: 'start' });
+      scrollToSection(target, 'auto');
     }
   });
 };

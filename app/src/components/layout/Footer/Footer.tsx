@@ -36,15 +36,7 @@ export function Footer() {
                     </a>
                   </li>
                 ))}
-              </ul>
-            </div>
-            <div className={styles.footerCol}>
-              <h4>Company</h4>
-              <ul>
                 <li><Link href="/about">About</Link></li>
-                {/* <li><a href="#">Blog</a></li>
-                <li><a href="#">Research</a></li>
-                <li><a href="#">Contact</a></li> */}
               </ul>
             </div>
             <div className={styles.footerCol}>

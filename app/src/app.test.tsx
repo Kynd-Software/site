@@ -19,7 +19,7 @@ describe('App routing', () => {
     renderAtPath('/');
 
     expect(
-      screen.getByRole('heading', { level: 1, name: /the productivity app for different kinds of minds/i }),
+      screen.getByRole('heading', { level: 1, name: /the life management app for different kinds of minds/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 2, name: /join our community/i })).toBeInTheDocument();
     expect(screen.queryByRole('heading', { level: 2, name: /be first to know when kynd launches/i })).not.toBeInTheDocument();
@@ -96,7 +96,7 @@ describe('App routing', () => {
     renderAtPath('/nope');
 
     expect(
-      screen.getByRole('heading', { level: 1, name: /the productivity app for different kinds of minds/i }),
+      screen.getByRole('heading', { level: 1, name: /the life management app for different kinds of minds/i }),
     ).toBeInTheDocument();
   });
 });
