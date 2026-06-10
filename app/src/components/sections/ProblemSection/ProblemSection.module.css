@@ -26,8 +26,8 @@
 }
 
 .highlight {
-  background: var(--brand-xpale);
-  border-color: var(--brand-pale);
+  background: var(--white);
+  border-color: var(--surface-mid);
 }
 
 .card :global(svg) {

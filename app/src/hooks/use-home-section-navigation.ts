@@ -1,5 +1,6 @@
 import { useLocation } from 'wouter';
 import { getSectionHref } from '@/lib/site-navigation';
+import { scrollToSection } from '@/lib/scroll-to-section';
 
 interface NavigateToSectionOptions {
   behavior?: ScrollBehavior;
@@ -27,7 +28,7 @@ export const useHomeSectionNavigation = (): UseHomeSectionNavigationResult => {
 
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior, block: 'start' });
+        scrollToSection(section, behavior);
       }
 
       return;

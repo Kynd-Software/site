@@ -16,7 +16,7 @@ export function Hero() {
         {/* Copy */}
         <div className={styles.copy}>
           <h1 className={styles.headline} id="hero-heading">
-            The productivity app for <em>different kinds</em> of minds.
+            The life management app for <em>different kinds</em> of minds.
           </h1>
 
           <div className={styles.sub}>
@@ -55,7 +55,7 @@ export function Hero() {
           <div className={styles.phoneWrap}>
             {/* Floating feature chips */}
             <div className={`${styles.chip} ${styles.chipFocus}`}>Focus Mode</div>
-            <div className={`${styles.chip} ${styles.chipBody}`}>Body Doubling</div>
+            <div className={`${styles.chip} ${styles.chipBody}`}>Collaborator</div>
             <div className={`${styles.chip} ${styles.chipEnergy}`}>Energy Aware</div>
             <div className={`${styles.chip} ${styles.chipWin}`}>Streak-Free Wins</div>
             <div className={`${styles.chip} ${styles.chipCapture}`}>Smart Capture</div>

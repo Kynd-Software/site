@@ -17,7 +17,7 @@
     grid-template-columns: 280px 1fr;
   }
   .footerCols {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

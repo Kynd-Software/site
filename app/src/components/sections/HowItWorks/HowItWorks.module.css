@@ -39,18 +39,12 @@
   gap: var(--s4);
 }
 
-.active .number {
-  background: var(--brand);
-  color: var(--white);
-  box-shadow: 0 0 0 6px var(--brand-pale), var(--shadow-md);
-}
-
 .number {
   width: 72px;
   height: 72px;
   border-radius: var(--r-pill);
-  background: var(--brand-pale);
-  color: var(--brand);
+  background: var(--brand);
+  color: var(--white);
   font-size: var(--t-2xl);
   font-weight: 900;
   display: flex;
@@ -58,7 +52,7 @@
   justify-content: center;
   flex-shrink: 0;
   border: 3px solid var(--white);
-  box-shadow: 0 0 0 6px var(--brand-pale);
+  box-shadow: 0 0 0 6px var(--brand-pale), var(--shadow-md);
   margin-bottom: var(--s5);
 }
 

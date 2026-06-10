@@ -3,6 +3,8 @@
 }
 
 .hero {
+  display: grid;
+  gap: var(--s8);
   padding: var(--s12);
   background:
     radial-gradient(circle at top right, rgba(123, 160, 106, 0.22), transparent 40%),
@@ -10,6 +12,10 @@
   border: 1px solid rgba(61, 92, 52, 0.12);
   border-radius: var(--r-2xl);
   box-shadow: var(--shadow-sm);
+}
+
+.heroCopy {
+  display: grid;
 }
 
 .eyebrow,
@@ -45,6 +51,71 @@
   color: var(--text-body);
 }
 
+.heroHighlights {
+  display: grid;
+  gap: var(--s3);
+}
+
+.heroHighlights span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--s4);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--white);
+  font-size: var(--t-sm);
+  font-weight: 700;
+}
+
+.heroPanel {
+  display: grid;
+  gap: var(--s4);
+  padding: var(--s6);
+  background:
+    radial-gradient(circle at top right, rgba(242, 196, 160, 0.22), transparent 36%),
+    linear-gradient(180deg, var(--brand-dark), rgba(43, 65, 34, 0.96));
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.heroPanelEyebrow,
+.communityCardEyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--t-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heroPanelEyebrow {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.heroQuote {
+  display: grid;
+  gap: var(--s2);
+  padding-top: var(--s2);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.heroQuote strong,
+.heroQuote p {
+  color: var(--white);
+}
+
+.heroQuote p {
+  opacity: 0.82;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+}
+
 .section {
   margin-top: var(--s10);
   padding: var(--s8);
@@ -64,29 +135,90 @@
   margin-top: var(--s2);
 }
 
+.storySection {
+  background:
+    radial-gradient(circle at top right, rgba(242, 196, 160, 0.24), transparent 38%),
+    rgba(255, 255, 255, 0.84);
+}
+
+.storyGrid {
+  display: grid;
+  gap: var(--s5);
+}
+
+.storyCard {
+  display: grid;
+  gap: var(--s3);
+}
+
+.storyCardAccent {
+  background:
+    radial-gradient(circle at top right, rgba(242, 196, 160, 0.22), transparent 42%),
+    var(--brand-xpale);
+}
+
+.storyCard h3 {
+  font-size: var(--t-xl);
+  margin-bottom: var(--s3);
+}
+
+.foundersSection {
+  background:
+    radial-gradient(circle at top right, rgba(242, 196, 160, 0.18), transparent 34%),
+    linear-gradient(180deg, var(--brand-dark), rgba(43, 65, 34, 0.98));
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.foundersSection .sectionEyebrow,
+.foundersSection h2 {
+  color: var(--white);
+}
+
 .founders {
   display: grid;
   gap: var(--s5);
 }
 
 .founderCard {
+  position: relative;
   padding: var(--s6);
-  background: var(--brand-xpale);
-  border: 1px solid rgba(61, 92, 52, 0.08);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-xl);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.founderBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--s4);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: var(--t-xl);
+  font-weight: 800;
 }
 
 .founderRole {
-  color: var(--brand-mid);
+  color: rgba(255, 255, 255, 0.72);
   margin-bottom: var(--s2);
 }
 
 .founderName {
   font-size: var(--t-xl);
   margin-bottom: var(--s3);
+  color: var(--white);
 }
 
-.founderBio,
+.founderBio {
+  color: rgba(255, 255, 255, 0.82);
+}
+
 .communityCopy {
   color: var(--text-body);
 }
@@ -94,8 +226,55 @@
 .communitySection {
   display: grid;
   gap: var(--s6);
-  align-items: center;
-  background: linear-gradient(180deg, rgba(240, 245, 237, 0.9), rgba(255, 255, 255, 0.96));
+  align-items: stretch;
+  background:
+    radial-gradient(circle at top right, rgba(242, 196, 160, 0.2), transparent 34%),
+    linear-gradient(180deg, rgba(240, 245, 237, 0.94), rgba(255, 255, 255, 0.98));
+}
+
+.communityContent {
+  display: grid;
+  gap: var(--s4);
+}
+
+.communityPoints {
+  display: grid;
+  gap: var(--s3);
+}
+
+.communityPoints p {
+  padding-left: var(--s5);
+  position: relative;
+}
+
+.communityPoints p::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.72rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--terracotta);
+}
+
+.communityCard {
+  display: grid;
+  align-content: start;
+  gap: var(--s4);
+  padding: var(--s6);
+  background: linear-gradient(180deg, var(--white), rgba(250, 247, 240, 0.96));
+  border: 1px solid rgba(61, 92, 52, 0.08);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.communityCardEyebrow {
+  color: var(--brand);
+}
+
+.communityCard h3 {
+  font-size: var(--t-xl);
 }
 
 .communityLink,
@@ -152,13 +331,29 @@
   margin-top: var(--s10);
 }
 
+@media (min-width: 768px) and (max-width: 1099px) {
+  .hero {
+    padding: var(--s14, 3.5rem);
+  }
+}
+
 @media (min-width: 720px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+    align-items: start;
+  }
+
+  .heroActions {
+    grid-column: 1 / -1;
+  }
+
+  .storyGrid,
   .founders,
   .communitySection {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .communitySection > div {
+  .communityContent {
     max-width: 36rem;
   }
 }
