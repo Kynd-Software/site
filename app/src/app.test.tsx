@@ -57,6 +57,15 @@ describe('App routing', () => {
     );
   });
 
+  it('renders the initial features route without adding it to navigation', () => {
+    renderAtPath('/initial-features');
+
+    expect(screen.getByRole('heading', { level: 1, name: /feature set v1\.0/i })).toBeInTheDocument();
+    expect(screen.getAllByRole('textbox')).toHaveLength(6);
+    expect(screen.getByRole('button', { name: /submit feedback/i })).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /^initial features$/i })).not.toBeInTheDocument();
+  });
+
   it('scrolls to the top when rendering a legal route', () => {
     const scrollToSpy = vi.spyOn(window, 'scrollTo');
 

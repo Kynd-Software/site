@@ -7,6 +7,7 @@ import { CookieBanner } from '@/components/compliance/cookie-banner';
 import { scrollToSection } from '@/lib/scroll-to-section';
 import { HomePage } from '@/pages/home-page';
 import { AboutPage } from '@/pages/about-page';
+import { InitialFeaturesPage } from '@/pages/initial-features-page';
 import { PrivacyPolicyPage } from '@/pages/legal/privacy-policy-page';
 import { CookiePolicyPage } from '@/pages/legal/cookie-policy-page';
 import { TermsAndConditionsPage } from '@/pages/legal/terms-and-conditions-page';
@@ -58,6 +59,7 @@ export default function App() {
         <Switch>
           <Route path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
+          <Route path="/initial-features" component={InitialFeaturesPage} />
           <Route path="/privacy-policy" component={PrivacyPolicyPage} />
           <Route path="/cookie-policy" component={CookiePolicyPage} />
           <Route path="/terms-and-conditions" component={TermsAndConditionsPage} />
