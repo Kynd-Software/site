@@ -23,12 +23,6 @@
     "react-hook-form": "^7.76.1",
     "wouter": "^3.10.0"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@firebase/util",
-      "protobufjs"
-    ]
-  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.60.0",
