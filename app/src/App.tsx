@@ -5,6 +5,8 @@ import { Nav } from '@/components/layout/Nav';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/compliance/cookie-banner';
 import { scrollToSection } from '@/lib/scroll-to-section';
+import { getCookieValue, consentCookie } from '@/lib/consent-cookie';
+import { initAnalytics } from '@/lib/firebase';
 import { HomePage } from '@/pages/home-page';
 import { AboutPage } from '@/pages/about-page';
 import { InitialFeaturesPage } from '@/pages/initial-features-page';
@@ -48,6 +50,13 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [location]);
+
+  useEffect(() => {
+    const consent = getCookieValue(consentCookie.name);
+    if (consent === consentCookie.acceptValue) {
+      initAnalytics();
+    }
+  }, []);
 
   return (
     <>

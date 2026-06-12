@@ -1,5 +1,4 @@
 import { Link } from 'wouter';
-import { useHomeSectionNavigation } from '@/hooks/use-home-section-navigation';
 import { Card } from '@/components/ui';
 import styles from './about-page.module.css';
 
@@ -21,8 +20,6 @@ const signals = [
 ] as const;
 
 export const AboutPage = () => {
-  const { navigateToSection } = useHomeSectionNavigation();
-
   return (
     <article className={styles.page}>
       <div className="container">
