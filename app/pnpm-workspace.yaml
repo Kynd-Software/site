@@ -1,4 +1,6 @@
 minimumReleaseAge: 0
 
 onlyBuiltDependencies:
-  - "*"
+  - esbuild
+  - "@firebase/util"
+  - protobufjs
