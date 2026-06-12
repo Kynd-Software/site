@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /
+
+# Redirect www to apex domain
+RewriteCond %{HTTP_HOST} ^www\.kyndsoft\.com$ [NC]
+RewriteRule ^(.*)$ https://kyndsoft.com/$1 [R=301,L]
+
+# If the request is for an existing file or directory, serve it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise, serve index.html (SPA fallback)
+RewriteRule ^ index.html [L]

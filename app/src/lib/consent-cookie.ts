@@ -55,11 +55,16 @@ export const setConsentCookie = ({
   const secureAttribute =
     typeof window !== 'undefined' && window.location.protocol === 'https:' ? '; Secure' : '';
 
+  // Include domain so cookie persists across www and apex domain
+  const hostname = typeof window !== 'undefined' ? window.location.hostname : '';
+  const domainAttribute = hostname.endsWith('kyndsoft.com') ? '; Domain=.kyndsoft.com' : '';
+
   document.cookie =
     `${encodeURIComponent(name)}=${encodeURIComponent(value)}` +
     `; Expires=${expiresAt.toUTCString()}` +
     `; Path=${path}` +
     `; SameSite=${sameSite}` +
+    domainAttribute +
     secureAttribute;
 };
 
