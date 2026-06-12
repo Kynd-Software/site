@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "website-fd527"
+  },
+  "targets": {
+    "website-fd527": {
+      "hosting": {
+        "site": [
+          "website-fd527"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
