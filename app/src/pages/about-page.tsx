@@ -6,12 +6,10 @@ import styles from './about-page.module.css';
 const founders = [
   {
     name: 'Graham',
-    title: 'Co-founder',
     bio: 'Graham helps shape Kynd around the real, messy experience of trying to keep life moving when your brain does not always follow the plan. He cares about making software feel calm, useful, and genuinely supportive.',
   },
   {
     name: 'David',
-    title: 'Co-founder',
     bio: 'David brings the product and technical side together so Kynd can turn thoughtful ideas into tools people can actually use every day. He wants the software to feel human first, and clever second.',
   },
 ] as const;
@@ -29,8 +27,10 @@ export const AboutPage = () => {
     <article className={styles.page}>
       <div className="container">
         <header className={styles.hero}>
+          <div className={`${styles.blob} ${styles.blob1}`} aria-hidden="true" />
+          <div className={`${styles.blob} ${styles.blob2}`} aria-hidden="true" />
+          <div className={`${styles.blob} ${styles.blob3}`} aria-hidden="true" />
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>About Kynd</p>
             <h1 className={styles.title}>This is Kynd.</h1>
             <div className={styles.intro}>
               <p>
@@ -102,17 +102,13 @@ export const AboutPage = () => {
 
         <section className={`${styles.section} ${styles.foundersSection}`} aria-labelledby="founders-heading">
           <div className={styles.sectionHeader}>
-            <p className={styles.sectionEyebrow}>Cofounders</p>
+            <p className={styles.sectionEyebrow}>Co-Founders</p>
             <h2 id="founders-heading">The people behind Kynd</h2>
           </div>
 
           <div className={styles.founders}>
             {founders.map((founder) => (
               <section key={founder.name} className={styles.founderCard} aria-labelledby={`${founder.name}-heading`}>
-                <div className={styles.founderBadge} aria-hidden="true">
-                  {founder.name.charAt(0)}
-                </div>
-                <p className={styles.founderRole}>{founder.title}</p>
                 <h3 id={`${founder.name}-heading`} className={styles.founderName}>
                   {founder.name}
                 </h3>
@@ -148,30 +144,12 @@ export const AboutPage = () => {
               href="https://www.facebook.com/groups/kyndsoft/"
               target="_blank"
               rel="noreferrer"
-              className={styles.communityLink}
+              className={styles.communityLinkOrange}
             >
-              Visit the Facebook group
+              Join the community
             </a>
           </div>
         </section>
-
-        <div className={styles.actions}>
-          <button
-            type="button"
-            className={`${styles.actionLink} ${styles.actionSecondary}`}
-            onClick={() => navigateToSection('community')}
-          >
-            Jump to community on the homepage
-          </button>
-          <a
-            href="https://www.facebook.com/groups/kyndsoft/"
-            target="_blank"
-            rel="noreferrer"
-            className={`${styles.actionLink} ${styles.actionPrimary}`}
-          >
-            Join the community
-          </a>
-        </div>
       </div>
     </article>
   );
