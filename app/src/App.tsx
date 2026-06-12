@@ -13,6 +13,7 @@ import { InitialFeaturesPage } from '@/pages/initial-features-page';
 import { PrivacyPolicyPage } from '@/pages/legal/privacy-policy-page';
 import { CookiePolicyPage } from '@/pages/legal/cookie-policy-page';
 import { TermsAndConditionsPage } from '@/pages/legal/terms-and-conditions-page';
+import { FeedbackPage } from '@/pages/feedback-page';
 
 const scrollToHashTarget = (): void => {
   if (window.location.pathname !== '/' || !window.location.hash) {
@@ -72,6 +73,7 @@ export default function App() {
           <Route path="/privacy-policy" component={PrivacyPolicyPage} />
           <Route path="/cookie-policy" component={CookiePolicyPage} />
           <Route path="/terms-and-conditions" component={TermsAndConditionsPage} />
+          <Route path="/feedback" component={FeedbackPage} />
           <Route>
             <HomePage />
           </Route>

@@ -1,0 +1,14 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow anyone to create feedback (public form)
+    match /feedback/{docId} {
+      allow create: if request.resource.data.keys().hasAll(['message', 'type', 'createdAt'])
+                    && request.resource.data.message is string
+                    && request.resource.data.message.size() > 0
+                    && request.resource.data.message.size() <= 5000;
+      allow read, update, delete: if false;
+    }
+  }
+}
