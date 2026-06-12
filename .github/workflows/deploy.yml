@@ -28,8 +28,7 @@ jobs:
       - name: Install dependencies
         working-directory: app
         run: |
-          pnpm config set minimum-release-age 0
-          pnpm install --frozen-lockfile
+          pnpm install --frozen-lockfile --config.onlyBuiltDependencies='["*"]'
 
       - name: Build
         working-directory: app
