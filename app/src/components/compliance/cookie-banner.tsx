@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import type { ReactElement } from 'react';
 import { Link } from 'wouter';
 import { consentCookie, getCookieValue, setConsentCookie } from '@/lib/consent-cookie';
+import { initAnalytics } from '@/lib/firebase';
 import styles from './cookie-banner.module.css';
 
 export const CookieBanner = (): ReactElement | null => {
@@ -18,6 +19,10 @@ export const CookieBanner = (): ReactElement | null => {
   const handleConsent = (value: 'true' | 'false'): void => {
     setConsentCookie({ value });
     setIsVisible(false);
+
+    if (value === consentCookie.acceptValue) {
+      initAnalytics();
+    }
   };
 
   return (
