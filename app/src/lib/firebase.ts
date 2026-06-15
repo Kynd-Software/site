@@ -1,5 +1,6 @@
 import { getApps, initializeApp } from 'firebase/app';
 import type { FirebaseApp } from 'firebase/app';
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'firebase/app-check';
 import { addDoc, collection, getFirestore, serverTimestamp } from 'firebase/firestore';
 import type { Firestore } from 'firebase/firestore';
 import { getAnalytics, isSupported } from 'firebase/analytics';
@@ -14,6 +15,8 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
+
+const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 const missingFirebaseVars = Object.entries(firebaseConfig)
   .filter(([key, value]) => !value && key !== 'measurementId')
@@ -33,6 +36,14 @@ const getFirebaseApp = (): FirebaseApp => {
   }
 
   app = getApps()[0] ?? initializeApp(firebaseConfig);
+
+  if (recaptchaSiteKey) {
+    initializeAppCheck(app, {
+      provider: new ReCaptchaEnterpriseProvider(recaptchaSiteKey),
+      isTokenAutoRefreshEnabled: true,
+    });
+  }
+
   return app;
 };
 

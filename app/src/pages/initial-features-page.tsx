@@ -5,6 +5,8 @@ import { Button } from '@/components/ui';
 import { addDocumentWithTimestamp } from '@/lib/firebase';
 import styles from './initial-features-page.module.css';
 
+const MAX_FIELD_LENGTH = 5000;
+
 interface DesignSlide {
   label: string;
   src: string;
@@ -140,7 +142,7 @@ const getFormValue = (formData: FormData, fieldName: string): string => {
     throw new Error(`Missing form value for ${fieldName}.`);
   }
 
-  return value.trim();
+  return value.trim().slice(0, MAX_FIELD_LENGTH);
 };
 
 const DesignCarousel = ({ title, designs }: { title: string; designs: DesignSlide[] }) => {
@@ -192,6 +194,12 @@ export const InitialFeaturesPage = () => {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+
+    // Honeypot check — if filled, silently "succeed" without submitting
+    if (formData.get('website')) {
+      setSubmitted(true);
+      return;
+    }
 
     setIsSubmitting(true);
     setSubmitError(null);
@@ -313,6 +321,7 @@ export const InitialFeaturesPage = () => {
                       name={section.textareaId}
                       className={styles.textarea}
                       rows={6}
+                      maxLength={MAX_FIELD_LENGTH}
                       placeholder={`Add notes about ${section.title.toLowerCase()}`}
                     />
                   </div>
@@ -342,11 +351,18 @@ export const InitialFeaturesPage = () => {
                   name="any-other-comments"
                   className={styles.textarea}
                   rows={6}
+                  maxLength={MAX_FIELD_LENGTH}
                   placeholder="Add any other comments"
                 />
               </div>
             </div>
           </section>
+
+          {/* Honeypot — hidden from real users, bots will fill it in */}
+          <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
+            <label htmlFor="website">Website</label>
+            <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+          </div>
 
           <div className={styles.formActions}>
             <Button type="submit" variant="brand" size="md" disabled={isSubmitting}>
