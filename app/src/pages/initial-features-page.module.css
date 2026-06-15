@@ -2,8 +2,12 @@
   padding-block: var(--s16) var(--s24);
 }
 
+.page :global(.container) {
+  padding-inline: 10px;
+}
+
 .hero {
-  padding: var(--s12);
+  padding: var(--s8);
   background: var(--brand-dark);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-2xl);
@@ -57,6 +61,72 @@
   margin-top: var(--s4);
 }
 
+.notePanel {
+  margin-top: var(--s5);
+  margin-bottom: 1rem;
+  padding: var(--s5);
+  border-radius: var(--r-xl);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.summaryOutro {
+  margin-top: var(--s7);
+}
+
+.noteHeading {
+  color: var(--white);
+  font-size: var(--t-lg);
+  text-transform: uppercase;
+  margin-bottom: var(--s3);
+}
+
+.noteList {
+  display: grid;
+  gap: var(--s3);
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.noteList li {
+  color: var(--cream);
+}
+
+.heroActions {
+  position: relative;
+  display: flex;
+  margin-top: var(--s6);
+}
+
+.demoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 var(--s6);
+  border-radius: var(--r-pill);
+  background: var(--white);
+  color: var(--brand-dark);
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+
+.demoLink:hover {
+  background: var(--brand-xpale);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.demoLink:focus-visible {
+  outline: 3px solid var(--brand-light);
+  outline-offset: 3px;
+}
+
 .form {
   display: grid;
   gap: var(--s6);
@@ -73,6 +143,26 @@
   box-shadow: var(--shadow-xs);
 }
 
+.sectionContent {
+  display: grid;
+  gap: var(--s6);
+}
+
+.sectionContentSingle {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.sectionMedia {
+  display: grid;
+  gap: var(--s5);
+}
+
+.sectionMain {
+  display: grid;
+  gap: var(--s6);
+  min-width: 0;
+}
+
 .sectionHeader {
   display: grid;
   gap: var(--s4);
@@ -80,6 +170,10 @@
 
 .sectionTitle {
   font-size: var(--t-2xl);
+}
+
+.sectionCopy {
+  color: var(--text-body);
 }
 
 .list {
@@ -96,6 +190,81 @@
 .field {
   display: grid;
   gap: var(--s3);
+}
+
+.carouselPanel {
+  display: grid;
+  gap: var(--s4);
+  width: min(100%, 320px);
+  margin-inline: auto;
+  flex: 0 0 320px;
+}
+
+.carouselFrame {
+  width: 320px;
+  max-width: 100%;
+  height: 650px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: var(--brand-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.carouselViewport {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--brand-dark);
+}
+
+.carouselMeta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.carouselLabel {
+  color: var(--text-body);
+  font-size: var(--t-base);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+
+.carouselControls button {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  padding-inline: 0;
+  font-size: calc(var(--t-lg) * 2);
+  line-height: 1;
+  border: none;
+  border-radius: 50%;
+  background: var(--brand-pale);
+  color: var(--brand-dark);
+  box-shadow: none;
+}
+
+.carouselControls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  color: var(--white);
 }
 
 .formActions {
@@ -191,11 +360,24 @@
 }
 
 @media (min-width: 900px) {
+  .page :global(.container) {
+    padding-inline: var(--s8);
+  }
+
   .hero {
     padding: var(--s16);
   }
 
   .section {
     padding: var(--s10);
+  }
+
+  .sectionContent {
+    grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+    align-items: flex-start;
+  }
+
+  .sectionMedia {
+    align-content: start;
   }
 }

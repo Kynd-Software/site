@@ -61,7 +61,13 @@ describe('App routing', () => {
     renderAtPath('/initial-features');
 
     expect(screen.getByRole('heading', { level: 1, name: /feature set v1\.0/i })).toBeInTheDocument();
-    expect(screen.getAllByRole('textbox')).toHaveLength(6);
+    expect(screen.getByRole('heading', { level: 2, name: /routines/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: /any other comments/i })).toBeInTheDocument();
+    expect(screen.getAllByRole('textbox')).toHaveLength(8);
+    expect(screen.getByRole('link', { name: /launch interactive demo/i })).toHaveAttribute(
+      'href',
+      '/initial-feature-designs/interactive-demo.html',
+    );
     expect(screen.getByRole('button', { name: /submit feedback/i })).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /^initial features$/i })).not.toBeInTheDocument();
   });
