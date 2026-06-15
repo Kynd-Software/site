@@ -10,5 +10,12 @@ service cloud.firestore {
                     && request.resource.data.message.size() <= 5000;
       allow read, update, delete: if false;
     }
+
+    // Allow anyone to submit initial feature feedback (public form)
+    match /initial-feature-feedback/{docId} {
+      allow create: if request.resource.data.keys().hasAll(['createdAt'])
+                    && request.resource.data.createdAt is timestamp;
+      allow read, update, delete: if false;
+    }
   }
 }

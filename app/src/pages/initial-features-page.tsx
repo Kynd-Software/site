@@ -251,7 +251,13 @@ export const InitialFeaturesPage = () => {
                 </li>
                 <li>
                   The interactive demo is not a functioning app, it&apos;s here to give
-                  you a sense of what it will be like to navigate around the app.
+                  you a sense of what it will be like to navigate around the app. It
+                  will open in a new tab on your browser.
+                </li>
+                <li>
+                  When looking at the screenshots below, if you want to click through
+                  the sections to get a sense of what we are trying to achieve, use
+                  the navigation buttons under each screenshot (the little arrows).
                 </li>
               </ul>
             </section>
