@@ -1,6 +1,6 @@
 import { getApps, initializeApp } from 'firebase/app';
 import type { FirebaseApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { addDoc, collection, getFirestore, serverTimestamp } from 'firebase/firestore';
 import type { Firestore } from 'firebase/firestore';
 import { getAnalytics, isSupported } from 'firebase/analytics';
 import type { Analytics } from 'firebase/analytics';
@@ -43,6 +43,18 @@ export const getDb = (): Firestore => {
 
   db = getFirestore(getFirebaseApp());
   return db;
+};
+
+export const addDocumentWithTimestamp = async <T extends object>(
+  collectionName: string,
+  data: T,
+) => {
+  const db = getDb();
+
+  return addDoc(collection(db, collectionName), {
+    ...data,
+    createdAt: serverTimestamp(),
+  });
 };
 
 export const initAnalytics = async (): Promise<Analytics | null> => {
