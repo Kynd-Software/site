@@ -276,7 +276,7 @@ export const InitialFeaturesPage = () => {
           </div>
           <div className={styles.heroActions}>
             <a
-              href="/initial-feature-designs/interactive-demo.html"
+              href="/initial-feature-designs/interactive_demo_mobile.html"
               target="_blank"
               rel="noreferrer"
               className={styles.demoLink}
