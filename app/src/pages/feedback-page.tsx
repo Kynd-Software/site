@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { getDb } from '@/lib/firebase';
+import { addDocumentWithTimestamp } from '@/lib/firebase';
 import styles from './feedback-page.module.css';
 
 type FeedbackType = 'suggestion' | 'bug' | 'general';
@@ -34,11 +33,7 @@ export const FeedbackPage = () => {
     setStatus('sending');
 
     try {
-      const db = getDb();
-      await addDoc(collection(db, 'feedback'), {
-        ...form,
-        createdAt: serverTimestamp(),
-      });
+      await addDocumentWithTimestamp('feedback', form);
       setStatus('success');
       setForm(initialForm);
     } catch {

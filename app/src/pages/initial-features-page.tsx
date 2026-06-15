@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui';
-import { getDb } from '@/lib/firebase';
+import { addDocumentWithTimestamp } from '@/lib/firebase';
 import styles from './initial-features-page.module.css';
 
 interface DesignSlide {
@@ -199,7 +198,7 @@ export const InitialFeaturesPage = () => {
     setSubmitted(false);
 
     try {
-      await addDoc(collection(getDb(), 'initial-feature-feedback'), {
+      await addDocumentWithTimestamp('initial-feature-feedback', {
         registration: getFormValue(formData, 'registration'),
         ingest: getFormValue(formData, 'ingest'),
         taskInitiation: getFormValue(formData, 'task-initiation'),
@@ -208,7 +207,6 @@ export const InitialFeaturesPage = () => {
         overwhelm: getFormValue(formData, 'overwhelm'),
         encouragement: getFormValue(formData, 'encouragement'),
         anyOtherComments: getFormValue(formData, 'any-other-comments'),
-        createdAt: serverTimestamp(),
       });
 
       form.reset();
