@@ -26,7 +26,7 @@ const featureSections: FeatureSection[] = [
     textareaId: 'registration',
     title: 'Simple registration',
     items: [
-      'Register with Google, Facebook, Apple or email and password',
+      'Register with Google, Apple or email and password',
       'Minimal signup process (no more than three steps to get started)',
     ],
     designs: [
