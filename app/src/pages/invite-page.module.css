@@ -1,0 +1,147 @@
+/* ═══════════════════════════════════════════════════════
+   Invite page
+   ═══════════════════════════════════════════════════════ */
+
+.page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s8) var(--s4);
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: var(--s12) var(--s8);
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.iconWrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--brand-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--s6);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: var(--t-3xl);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 var(--s2);
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-family: var(--font);
+  font-size: var(--t-base);
+  color: var(--text-muted);
+  margin: 0 0 var(--s8);
+  line-height: 1.6;
+}
+
+.roleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  background: var(--terracotta-lt);
+  border-radius: var(--r-pill);
+  padding: var(--s2) var(--s4);
+  font-family: var(--font-heading);
+  font-size: var(--t-sm);
+  font-weight: 800;
+  color: var(--terracotta-dk);
+  margin-bottom: var(--s8);
+}
+
+.codeLabel {
+  font-family: var(--font);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 0 0 var(--s3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.codeDisplay {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  font-weight: 800;
+  color: var(--brand);
+  letter-spacing: 8px;
+  margin: 0 0 var(--s6);
+  user-select: all;
+}
+
+.instructions {
+  font-family: var(--font);
+  font-size: var(--t-sm);
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0 0 var(--s8);
+}
+
+.instructions strong {
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.privacyNote {
+  background: var(--brand-xpale);
+  border-radius: var(--r-md);
+  padding: var(--s4) var(--s5);
+  font-family: var(--font);
+  font-size: var(--t-xs);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* States */
+.loading {
+  font-family: var(--font);
+  font-size: var(--t-base);
+  color: var(--text-muted);
+  padding: var(--s8);
+}
+
+.errorCard {
+  composes: card;
+  background: var(--cream);
+}
+
+.errorTitle {
+  font-family: var(--font-heading);
+  font-size: var(--t-2xl);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0 0 var(--s3);
+}
+
+.errorMessage {
+  font-family: var(--font);
+  font-size: var(--t-base);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.expiredBadge {
+  display: inline-block;
+  background: var(--surface);
+  border-radius: var(--r-pill);
+  padding: var(--s2) var(--s4);
+  font-family: var(--font);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: var(--s6);
+}

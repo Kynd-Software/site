@@ -10,6 +10,7 @@ import { initAnalytics } from '@/lib/firebase';
 import { HomePage } from '@/pages/home-page';
 import { AboutPage } from '@/pages/about-page';
 import { InitialFeaturesPage } from '@/pages/initial-features-page';
+import { InvitePage } from '@/pages/invite-page';
 import { PrivacyPolicyPage } from '@/pages/legal/privacy-policy-page';
 import { CookiePolicyPage } from '@/pages/legal/cookie-policy-page';
 import { TermsAndConditionsPage } from '@/pages/legal/terms-and-conditions-page';
@@ -70,6 +71,7 @@ export default function App() {
           <Route path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/initial-features" component={InitialFeaturesPage} />
+          <Route path="/invite/:id" component={InvitePage} />
           <Route path="/privacy-policy" component={PrivacyPolicyPage} />
           <Route path="/cookie-policy" component={CookiePolicyPage} />
           <Route path="/terms-and-conditions" component={TermsAndConditionsPage} />
