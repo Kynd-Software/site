@@ -15,10 +15,12 @@ import { PrivacyPolicyPage } from '@/pages/legal/privacy-policy-page';
 import { CookiePolicyPage } from '@/pages/legal/cookie-policy-page';
 import { TermsAndConditionsPage } from '@/pages/legal/terms-and-conditions-page';
 import { FeedbackPage } from '@/pages/feedback-page';
+import { ResourcesPage } from '@/pages/resources-page';
+import { ArticlePage } from '@/pages/article-page';
 
-const scrollToHashTarget = (): void => {
-  if (window.location.pathname !== '/' || !window.location.hash) {
-    return;
+const scrollToHashTarget = (): boolean => {
+  if (!window.location.hash) {
+    return false;
   }
 
   const targetId = decodeURIComponent(window.location.hash.slice(1));
@@ -29,6 +31,8 @@ const scrollToHashTarget = (): void => {
       scrollToSection(target, 'auto');
     }
   });
+
+  return true;
 };
 
 const scrollToPageTop = (): void => {
@@ -39,14 +43,14 @@ export default function App() {
   const [location] = useLocation();
 
   useEffect(() => {
-    if (window.location.pathname === '/' && window.location.hash) {
-      scrollToHashTarget();
-    } else {
+    if (!scrollToHashTarget()) {
       scrollToPageTop();
     }
 
     const handleHashChange = (): void => {
-      scrollToHashTarget();
+      if (!scrollToHashTarget()) {
+        scrollToPageTop();
+      }
     };
 
     window.addEventListener('hashchange', handleHashChange);
@@ -76,6 +80,8 @@ export default function App() {
           <Route path="/cookie-policy" component={CookiePolicyPage} />
           <Route path="/terms-and-conditions" component={TermsAndConditionsPage} />
           <Route path="/feedback" component={FeedbackPage} />
+          <Route path="/resources/:slug" component={ArticlePage} />
+          <Route path="/resources" component={ResourcesPage} />
           <Route>
             <HomePage />
           </Route>
