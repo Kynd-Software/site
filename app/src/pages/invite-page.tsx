@@ -100,7 +100,7 @@ export const InvitePage = () => {
         </p>
 
         <div className={styles.ctaGroup}>
-          <a href={`https://kyndsoft.com/invite/${token}`} className={styles.primaryCta}>
+          <a href={`kynd://invite/${token}`} className={styles.primaryCta}>
             Open in app
           </a>
           <a href={APP_STORE_URL} className={styles.secondaryCta} target="_blank" rel="noopener noreferrer">
