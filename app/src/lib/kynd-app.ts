@@ -1,6 +1,6 @@
 import { initializeApp, getApps } from 'firebase/app';
-import { doc, getDoc, getFirestore } from 'firebase/firestore';
-import type { Firestore } from 'firebase/firestore';
+import { getFunctions, httpsCallable } from 'firebase/functions';
+import type { Functions } from 'firebase/functions';
 
 const KYND_APP_CONFIG = {
   apiKey: 'AIzaSyDDR8Ytynak3zIjSxdGkL8mLtBAk4g0_oA',
@@ -13,36 +13,37 @@ const KYND_APP_CONFIG = {
 
 const APP_NAME = 'kynd-app';
 
-let db: Firestore | null = null;
+let fns: Functions | null = null;
 
-const getKyndDb = (): Firestore => {
-  if (db) return db;
+const getKyndFunctions = (): Functions => {
+  if (fns) return fns;
 
   const existingApp = getApps().find((a) => a.name === APP_NAME);
   const app = existingApp ?? initializeApp(KYND_APP_CONFIG, APP_NAME);
-  db = getFirestore(app);
-  return db;
+  fns = getFunctions(app, 'europe-west2');
+  return fns;
 };
 
-export interface InviteData {
-  fromName: string;
-  recipientName: string;
-  role: string;
-  code: string;
-  status: string;
+export interface ValidateInviteResult {
+  valid: boolean;
+  reason?: string;
+  inviterName?: string;
+  recipientName?: string;
+  accessScope?: string;
+  deliveryType?: string;
 }
 
-export const fetchInvite = async (inviteId: string): Promise<InviteData | null> => {
+export const validateInviteToken = async (token: string): Promise<ValidateInviteResult> => {
   try {
-    const firestore = getKyndDb();
-    const docRef = doc(firestore, 'invites', inviteId);
-    const snap = await getDoc(docRef);
-
-    if (!snap.exists()) return null;
-
-    return snap.data() as InviteData;
+    const functions = getKyndFunctions();
+    const validateFn = httpsCallable<{ token: string }, ValidateInviteResult>(
+      functions,
+      'validateSecureInvite'
+    );
+    const result = await validateFn({ token });
+    return result.data;
   } catch (err) {
-    console.error('Error fetching invite:', err);
-    return null;
+    console.error('Error validating invite:', err);
+    return { valid: false, reason: 'error' };
   }
 };

@@ -87,12 +87,56 @@
   font-size: var(--t-sm);
   color: var(--text-muted);
   line-height: 1.65;
-  margin: 0 0 var(--s8);
+  margin: 0 0 var(--s6);
 }
 
 .instructions strong {
   color: var(--brand);
   font-weight: 800;
+}
+
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  margin-bottom: var(--s8);
+}
+
+.primaryCta {
+  display: block;
+  background: var(--brand);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: var(--t-base);
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  padding: var(--s4) var(--s6);
+  border-radius: var(--r-lg);
+  transition: opacity 0.15s;
+}
+
+.primaryCta:hover {
+  opacity: 0.9;
+}
+
+.secondaryCta {
+  display: block;
+  background: var(--surface);
+  color: var(--brand);
+  font-family: var(--font);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  padding: var(--s3) var(--s6);
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--brand-pale);
+  transition: background 0.15s;
+}
+
+.secondaryCta:hover {
+  background: var(--brand-pale);
 }
 
 .privacyNote {

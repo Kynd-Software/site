@@ -1,40 +1,36 @@
 import { useEffect, useState } from 'react';
 import { useRoute } from 'wouter';
-import { Users } from 'lucide-react';
-import { fetchInvite } from '@/lib/kynd-app';
-import type { InviteData } from '@/lib/kynd-app';
+import { Users, XCircle } from 'lucide-react';
+import { validateInviteToken } from '@/lib/kynd-app';
+import type { ValidateInviteResult } from '@/lib/kynd-app';
 import styles from './invite-page.module.css';
 
-const ROLE_DISPLAY: Record<string, { name: string; emoji: string }> = {
-  cheerleader: { name: 'Cheerleader', emoji: '🎉' },
+const SCOPE_DISPLAY: Record<string, { name: string; emoji: string }> = {
   supporter: { name: 'Supporter', emoji: '🤝' },
-  copilot: { name: 'Buddy', emoji: '🧭' },
 };
 
-export const InvitePage = () => {
-  const [, params] = useRoute('/invite/:id');
-  const inviteId = params?.id ?? '';
+const APP_STORE_URL = 'https://apps.apple.com/app/kynd/id6738830374';
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.kyndsoft.kynd';
 
-  const [invite, setInvite] = useState<InviteData | null>(null);
+export const InvitePage = () => {
+  const [, params] = useRoute('/invite/:token');
+  const token = params?.token ?? '';
+
+  const [invite, setInvite] = useState<ValidateInviteResult | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (!inviteId) {
-      setError(true);
+    if (!token) {
+      setInvite({ valid: false, reason: 'not_found' });
       setLoading(false);
       return;
     }
 
-    fetchInvite(inviteId).then((data) => {
-      if (data) {
-        setInvite(data);
-      } else {
-        setError(true);
-      }
+    validateInviteToken(token).then((data) => {
+      setInvite(data);
       setLoading(false);
     });
-  }, [inviteId]);
+  }, [token]);
 
   if (loading) {
     return (
@@ -44,41 +40,42 @@ export const InvitePage = () => {
     );
   }
 
-  if (error || !invite) {
+  if (!invite?.valid) {
+    const errorMessages: Record<string, { title: string; message: string }> = {
+      not_found: {
+        title: 'Invite not found',
+        message: "This invite link doesn't seem to exist or has already been used. Check with the person who sent it.",
+      },
+      expired: {
+        title: 'Invite expired',
+        message: 'This invite has expired. Ask the person who sent it to resend a new one.',
+      },
+      already_redeemed: {
+        title: 'Already accepted',
+        message: 'This invite has already been accepted. Open the kynd app to get started.',
+      },
+      error: {
+        title: 'Something went wrong',
+        message: "We couldn't load this invite. Please try again or ask the person who sent it to resend.",
+      },
+    };
+
+    const { title, message } = errorMessages[invite?.reason || 'not_found'] || errorMessages.not_found;
+
     return (
       <section className={styles.page}>
         <div className={styles.errorCard}>
           <div className={styles.iconWrap}>
-            <Users size={32} color="var(--brand)" />
+            <XCircle size={32} color="var(--brand)" />
           </div>
-          <h1 className={styles.errorTitle}>Invite not found</h1>
-          <p className={styles.errorMessage}>
-            This invite link doesn&apos;t seem to exist. Check with the person who sent it and ask
-            them to share it again.
-          </p>
+          <h1 className={styles.errorTitle}>{title}</h1>
+          <p className={styles.errorMessage}>{message}</p>
         </div>
       </section>
     );
   }
 
-  if (invite.status === 'accepted') {
-    return (
-      <section className={styles.page}>
-        <div className={styles.card}>
-          <div className={styles.iconWrap}>
-            <Users size={32} color="var(--brand)" />
-          </div>
-          <span className={styles.expiredBadge}>Already accepted</span>
-          <h1 className={styles.title}>You&apos;re all set</h1>
-          <p className={styles.subtitle}>
-            This invite has already been accepted. Open the kynd app to get started.
-          </p>
-        </div>
-      </section>
-    );
-  }
-
-  const role = ROLE_DISPLAY[invite.role] || ROLE_DISPLAY.supporter;
+  const scope = SCOPE_DISPLAY[invite.accessScope || 'supporter'] || SCOPE_DISPLAY.supporter;
 
   return (
     <section className={styles.page}>
@@ -89,25 +86,34 @@ export const InvitePage = () => {
 
         <h1 className={styles.title}>You&apos;re invited</h1>
         <p className={styles.subtitle}>
-          {invite.fromName || 'Someone'} wants you to be their{' '}
-          <strong>{role.name}</strong> on kynd.
+          <strong>{invite.inviterName || 'Someone'}</strong> wants you to be their{' '}
+          <strong>{scope.name}</strong> on kynd.
         </p>
 
         <span className={styles.roleBadge}>
-          {role.emoji} {role.name}
+          {scope.emoji} {scope.name}
         </span>
 
-        <p className={styles.codeLabel}>Your activation code</p>
-        <p className={styles.codeDisplay}>{invite.code}</p>
-
         <p className={styles.instructions}>
-          Open the <strong>kynd</strong> app, tap{' '}
-          <strong>&ldquo;Been invited to help?&rdquo;</strong> and enter this code to get connected.
+          Open the <strong>kynd</strong> app to accept this invite. If you don&apos;t have the app yet,
+          download it first.
         </p>
 
+        <div className={styles.ctaGroup}>
+          <a href={`https://kyndsoft.com/invite/${token}`} className={styles.primaryCta}>
+            Open in app
+          </a>
+          <a href={APP_STORE_URL} className={styles.secondaryCta} target="_blank" rel="noopener noreferrer">
+            Download for iOS
+          </a>
+          <a href={PLAY_STORE_URL} className={styles.secondaryCta} target="_blank" rel="noopener noreferrer">
+            Download for Android
+          </a>
+        </div>
+
         <div className={styles.privacyNote}>
-          🔒 This code is just for you. It connects you with {invite.fromName || 'the person'} and
-          nothing else.
+          🔒 This invite only connects you with {invite.inviterName || 'the person who sent it'}.
+          Your data stays private.
         </div>
       </div>
     </section>

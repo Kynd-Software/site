@@ -75,7 +75,7 @@ export default function App() {
           <Route path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/initial-features" component={InitialFeaturesPage} />
-          <Route path="/invite/:id" component={InvitePage} />
+          <Route path="/invite/:token" component={InvitePage} />
           <Route path="/privacy-policy" component={PrivacyPolicyPage} />
           <Route path="/cookie-policy" component={CookiePolicyPage} />
           <Route path="/terms-and-conditions" component={TermsAndConditionsPage} />
