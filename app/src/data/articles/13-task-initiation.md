@@ -46,13 +46,11 @@ If starting means potentially doing it wrong, the brain may avoid starting entir
 
 Traditional procrastination is often described as choosing short-term pleasure over long-term benefit. ADHD task initiation difficulty is different:
 
-| | Procrastination | Task initiation difficulty |
-|---|---|---|
-| **Awareness** | May not be fully conscious | Painfully aware |
-| **Desire** | Choosing not to (at some level) | Wanting to but unable |
-| **Emotion** | May feel fine (until deadline) | Immediate distress |
-| **Voluntary** | Somewhat | No |
-| **Willpower helps** | Sometimes | Rarely |
+- **Awareness:** procrastination may not be fully conscious; with task initiation difficulty you are painfully aware.
+- **Desire:** procrastination involves choosing not to (at some level); with task initiation difficulty you want to but can't.
+- **Emotion:** procrastination may feel fine until the deadline; task initiation difficulty brings immediate distress.
+- **Voluntary:** procrastination is somewhat voluntary; task initiation difficulty is not.
+- **Willpower:** it sometimes helps with procrastination, but rarely helps with task initiation difficulty.
 
 Many people with ADHD *are* procrastinating — but the procrastination itself is driven by executive function impairment, not laziness or indifference.
 

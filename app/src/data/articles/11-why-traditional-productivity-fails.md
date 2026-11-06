@@ -24,7 +24,7 @@ GTD relies on comprehensive capture, regular review, and maintaining an organise
 Dividing your day into pre-assigned blocks assumes you can predict how long tasks will take, transition smoothly between activities, and stick to a plan when something more interesting appears. For ADHD, time blocking often becomes a source of shame when the actual day inevitably deviates from the idealised plan.
 
 ### Pomodoro technique
-25 minutes on, 5 minutes off. The structure can help some people with ADHD — the timer creates artificial urgency. But it also breaks hyperfocus (the one time attention IS working) and requires the ability to re-engage after each break, which is a transition cost the system doesn't account for.
+25 minutes on, 5 minutes off. The structure can help some people with ADHD — the timer creates artificial urgency. But it also breaks hyperfocus (the one time attention is working) and requires the ability to re-engage after each break, which is a transition cost the system doesn't account for.
 
 ### Habit stacking / streaks
 "Don't break the chain" assumes that maintaining a streak is motivating. For many people with ADHD, one broken day destroys the entire system's psychological hold. The all-or-nothing thinking that often accompanies ADHD means one missed day feels like total failure rather than a minor blip.

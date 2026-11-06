@@ -32,7 +32,6 @@ const readTimesByFilename: Record<string, number> = {
   '02-three-presentations-of-adhd.md': 4,
   '03-adhd-across-the-lifespan.md': 5,
   '04-late-diagnosis.md': 5,
-  '05-adhd-and-the-brain.md': 5,
   '06-time-blindness.md': 5,
   '07-the-paradox-of-hyperfocus.md': 5,
   '08-emotional-dysregulation.md': 6,
@@ -48,11 +47,9 @@ const readTimesByFilename: Record<string, number> = {
   '18-masking-and-burnout.md': 6,
   '19-adhd-and-self-worth.md': 7,
   '20-adhd-plus-autism.md': 6,
-  '21-adhd-and-anxiety.md': 6,
   '22-women-and-adhd.md': 6,
   '23-adhd-and-addiction.md': 6,
   '24-external-scaffolding.md': 7,
-  '25-medication-demystified.md': 8,
 };
 
 const sectionSeeds: SectionSeed[] = [
@@ -86,13 +83,6 @@ const sectionSeeds: SectionSeed[] = [
         number: '04',
         title: 'Late Diagnosis: Why So Many Adults Are Only Finding Out Now',
         description: 'Why a generation slipped through the net — and what a late diagnosis can change.',
-      },
-      {
-        filename: '05-adhd-and-the-brain.md',
-        number: '05',
-        title: 'ADHD and the Brain',
-        description:
-          'Dopamine, executive function and the neuroscience — explained without the textbook.',
       },
     ],
   },
@@ -221,13 +211,6 @@ const sectionSeeds: SectionSeed[] = [
           "AuDHD is common, real, and complicated — here's what the overlap looks like.",
       },
       {
-        filename: '21-adhd-and-anxiety.md',
-        number: '21',
-        title: 'ADHD and Anxiety: Chicken, Egg, or Both?',
-        description:
-          'Untangling two conditions that feed each other — and why the order matters for treatment.',
-      },
-      {
         filename: '22-women-and-adhd.md',
         number: '22',
         title: 'Women and ADHD',
@@ -253,13 +236,6 @@ const sectionSeeds: SectionSeed[] = [
         title: 'External Scaffolding: Building Systems That Work For You',
         description:
           'Stop relying on memory and willpower — put the structure outside your head instead.',
-      },
-      {
-        filename: '25-medication-demystified.md',
-        number: '25',
-        title: 'Medication Demystified',
-        description:
-          'Stimulants, non-stimulants, and honest answers to the questions people are afraid to ask.',
       },
     ],
   },

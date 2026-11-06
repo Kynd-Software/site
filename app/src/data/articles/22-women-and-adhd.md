@@ -87,7 +87,7 @@ While every individual is different, patterns common in women with ADHD include:
 
 This deserves emphasis because it's so poorly understood even among ADHD specialists:
 
-**Oestrogen supports dopamine function.** When oestrogen is high (mid-cycle), many women with ADHD function better. When it drops (pre-menstrually, postpartum, perimenopause), ADHD symptoms can worsen significantly.
+**Oestrogen supports dopamine function.** When oestrogen is high (mid-cycle), many women with ADHD function better. When it drops (pre-menstrually, postpartum, perimenopause), ADHD symptoms can worsen significantly. Oestrogen is only part of the picture, though: the rate of hormonal change, and its interaction with progesterone and other regulatory systems, matters as much as the absolute level.
 
 This means:
 - A woman may describe symptoms that "come and go" — dismissed as not being "real ADHD"

@@ -21,12 +21,10 @@ These looked like opposites. But when you look beneath the behaviours to the und
 
 Both ADHD and autism involve executive function differences, though often in different domains:
 
-| | ADHD | Autism | Both |
-|---|---|---|---|
-| **Planning** | Difficulty starting | Difficulty with change | Difficulty with unstructured tasks |
-| **Flexibility** | Chaotic shifting | Rigid resistance to shifting | Struggle with externally imposed change |
-| **Working memory** | Poor | Variable | Information processing differences |
-| **Self-monitoring** | Low self-awareness in the moment | Difficulty reading social context | Difficulty predicting how one is perceived |
+- **Planning:** ADHD often means difficulty starting; autism often means difficulty with change; together, difficulty with unstructured tasks.
+- **Flexibility:** ADHD can look like chaotic shifting; autism like rigid resistance to shifting; together, a struggle with externally imposed change.
+- **Working memory:** often poor in ADHD and variable in autism; together, information processing differences.
+- **Self-monitoring:** ADHD often involves low self-awareness in the moment; autism, difficulty reading social context; together, difficulty predicting how one is perceived.
 
 ### Sensory processing
 

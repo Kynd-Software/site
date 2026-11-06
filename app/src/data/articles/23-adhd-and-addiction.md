@@ -99,6 +99,8 @@ Can you prescribe stimulant medication to someone with a substance use history? 
 - Non-stimulant ADHD medications (atomoxetine, guanfacine) are alternatives when stimulant use is genuinely contraindicated
 - Untreated ADHD dramatically increases relapse risk — meaning the greater danger is often in *not* treating
 
+**An important caution:** ADHD medication is not safe to combine with ongoing use of other stimulants such as amphetamine ("speed") or cocaine. Doing so can cause serious harm, including temporary or lasting brain and nervous system damage, sustained paranoia and psychosis, and severe cardiovascular risk. Anyone who is still using substances should be open about it with their prescriber, and should never use street stimulants alongside prescribed medication. This decision belongs with a qualified clinician who knows your full history.
+
 ## Behavioural addictions
 
 ADHD-related addiction isn't limited to substances. The same dopamine-seeking, impulse-control, and emotional regulation difficulties elevate risk for:

@@ -53,16 +53,6 @@ Emotional dysregulation in ADHD affects:
 
 **Physical health.** Chronic emotional intensity is physiologically stressful. It contributes to fatigue, muscle tension, and burnout.
 
-## What it isn't
-
-**It isn't bipolar disorder.** ADHD emotional shifts are typically reactive (triggered by events) and short-lived (hours, not days or weeks). Bipolar mood episodes are endogenous (arising independently of events) and sustained.
-
-**It isn't borderline personality disorder.** While there's symptom overlap, the underlying mechanisms differ. ADHD emotional dysregulation stems from executive function impairment; BPD involves different attachment and identity processes. (They can co-occur, however.)
-
-**It isn't immaturity.** It's a neurological difference in emotional processing that persists regardless of age or personal growth.
-
-**It isn't a choice.** Nobody chooses to feel things at maximum volume. The emotional system fires before conscious choice enters the picture.
-
 ## Working with emotional dysregulation
 
 **Name it.** Being able to say "my emotional response is disproportionate to the trigger, and that's an ADHD thing" doesn't make the feeling go away, but it creates a tiny space between stimulus and response.

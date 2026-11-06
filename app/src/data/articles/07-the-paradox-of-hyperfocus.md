@@ -53,13 +53,11 @@ While the productivity during hyperfocus can be remarkable, there are genuine co
 
 Hyperfocus and flow states share similarities — deep concentration, time distortion, high output. But they differ in important ways:
 
-| | Flow | Hyperfocus |
-|---|---|---|
-| **Voluntary** | Can be cultivated | Not under reliable control |
-| **Healthy boundaries** | Person can exit when needed | Exiting is difficult/painful |
-| **Self-awareness** | Maintained | Often lost |
-| **Aftermath** | Energised | Often exhausted |
-| **Basic needs** | Still attended to | Frequently forgotten |
+- **Control:** flow can be cultivated; hyperfocus is not under reliable control.
+- **Boundaries:** with flow, a person can exit when needed; with hyperfocus, exiting is difficult and can be painful.
+- **Self-awareness:** maintained in flow; often lost in hyperfocus.
+- **Aftermath:** flow tends to leave you energised; hyperfocus often leaves you exhausted.
+- **Basic needs:** still attended to in flow; frequently forgotten in hyperfocus.
 
 Flow is absorption. Hyperfocus is more like capture.
 

@@ -10,7 +10,7 @@ These beliefs have a source. And understanding that source is the beginning of d
 
 ### Childhood feedback loops
 
-Children with ADHD receive, on average, significantly more negative feedback than their neurotypical peers. Studies suggest that by age twelve, a child with ADHD has received 20,000 more negative or corrective messages than the average child.
+Children with ADHD receive, on average, significantly more negative feedback than their neurotypical peers. Studies suggest that by age twelve, a child with ADHD may have received thousands, or even tens of thousands, more negative or corrective messages than the average child.
 
 Twenty thousand more times being told: stop that, pay attention, try harder, sit still, why can't you just, what's wrong with you, you're not reaching your potential.
 
